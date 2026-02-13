@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 
 const experiences = [
-  { period: "2020-Present", role: "Evangelist 傳道", org: "Mountainside Lutheran Church", current: true },
+  { period: "2020-Present", role: "Pastor / Minister 牧師", org: "Mountainside Lutheran Church", current: true },
   { period: "2021-Present", role: "Chaplain", org: "AUT (Auckland University of Technology)", current: true },
   { period: "2015-Present", role: "Adjunct Faculty", org: "Concordia Theological Seminary", current: true },
   { period: "2016-Present", role: "Visiting Lecturer", org: "Alliance Bible Seminary", current: true },
