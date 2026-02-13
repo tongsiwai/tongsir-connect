@@ -2,13 +2,18 @@ import { motion } from "framer-motion";
 import { GraduationCap } from "lucide-react";
 
 const degrees = [
-  { year: "2021–2022", school: "Otago Polytechnic", degree: "Master of Applied Management" },
-  { year: "2014–2017", school: "Graduate Theological Foundation", degree: "Doctor of Ministry (Spiritual Direction)" },
-  { year: "2014–2015", school: "Hong Kong Shue Yan University 香港樹仁大學", degree: "Post-Graduate Certificate in Clinical Supervision" },
-  { year: "2008–2013", school: "Alliance Bible Seminary 建道神學院", degree: "Master of Christian Studies (Marriage and Family Therapy)" },
-  { year: "2005–2008", school: "Alliance Bible Seminary 建道神學院", degree: "Bachelor of Theology" },
-  { year: "1999–2001", school: "City University of Hong Kong 香港城市大學", degree: "PGDE (Primary Education)" },
-  { year: "1995–1999", school: "Hong Kong Baptist University 香港浸會大學", degree: "Bachelor of Social Sciences (Hons) – Geography" },
+  { year: "2021-2022", school: "Australian Lutheran College", degree: "Diploma of Theology" },
+  { year: "2021-2022", school: "Otago Polytechnic Auckland International Campus", degree: "Master of Applied Management" },
+  { year: "2014-2017", school: "Graduate Theological Foundation", degree: "Doctor of Ministry (Spiritual Direction)" },
+  { year: "2014-2015", school: "Hong Kong Shue Yan University 香港樹仁大學", degree: "Post-Graduate Certificate in Clinical Supervision (Counselling)" },
+  { year: "2008-2013", school: "Alliance Bible Seminary 建道神學院", degree: "Master of Christian Studies (Marriage and Family Therapy)" },
+  { year: "2008-2011", school: "Hong Kong Institute of Professional Counselling", degree: "Professional Diploma (God-Centered Family Reconstruction)" },
+  { year: "2006-2009", school: "Hong Kong Satir Center for Human Development", degree: "Professional Counseling Certificate (Satir Transformational Systemic Therapy)" },
+  { year: "2006-2008", school: "Alliance Bible Seminary 建道神學院", degree: "Postgraduate Diploma (Marriage and Family Therapy)" },
+  { year: "2002-2004", school: "The University of Hong Kong 香港大學", degree: "Postgraduate Certificate (Education)" },
+  { year: "2000-2002", school: "University of South Australia", degree: "Master of Social Science (Counselling)" },
+  { year: "1998-1999", school: "The University of Hong Kong 香港大學", degree: "Certificate in Youth Counseling" },
+  { year: "1993-1996", school: "Hong Kong University of Science and Technology 香港科技大學", degree: "Bachelor of Engineering (Computer Science)" },
 ];
 
 export default function EducationSection() {
@@ -43,20 +48,18 @@ export default function EducationSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08, duration: 0.5 }}
-                className="relative pl-12 md:pl-16"
+                className="card-warm"
               >
-                {/* Timeline dot */}
-                <div className="absolute left-2.5 md:left-4.5 top-1.5 w-3 h-3 rounded-full bg-accent border-2 border-background" />
-
-                <span className="text-xs uppercase tracking-wider text-accent font-semibold font-body">
-                  {d.year}
-                </span>
-                <h3 className="text-base font-display font-semibold text-foreground mt-1">
+                <div className="flex items-start justify-between gap-2">
+                  <span className="text-xs uppercase tracking-wider text-accent font-semibold flex-shrink-0">
+                    {d.year}
+                  </span>
+                  <div className="timeline-dot" />
+                </div>
+                <h3 className="text-xl font-bold text-text-primary mb-1 mt-2">
                   {d.school}
                 </h3>
-                <p className="text-sm text-muted-foreground font-body mt-0.5">
-                  {d.degree}
-                </p>
+                <p className="text-text-secondary">{d.degree}</p>
               </motion.div>
             ))}
           </div>
