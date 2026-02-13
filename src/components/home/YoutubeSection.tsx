@@ -45,7 +45,7 @@ export default function YoutubeSection() {
           className="mt-10 text-sm text-muted-foreground leading-relaxed font-body space-y-4"
         >
           <p className="font-chinese">
-            唐思偉博士（TongSir）現居紐西蘭奧克蘭，是一位結合輔導、牧養與教育的跨文化工作者。他在香港從事小學教育多年，曾獲香港傑出教師及優秀教師獎。移居紐西蘭後，投入全職牧養與輔導事工，並於多間神學院擔任客席講師。
+            唐思偉博士（TongSir）現居紐西蘭奧克蘭，是一位結合輔導、牧養與教育的跨文化工作者。他在香港從事中學輔導工作多年，曾獲香港傑出教師及優秀教師獎。移居紐西蘭後，投入全職牧養與輔導事工，並於多間神學院擔任客席講師。
           </p>
           <p className="font-chinese">
             他的專業涵蓋聚焦取向心理治療（Focusing-Oriented Psychotherapy）、靈性指導、臨床督導、婚姻與家庭治療等領域。
