@@ -2,12 +2,18 @@ import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 
 const experiences = [
-  { period: "2020–Present", role: "Evangelist 傳道人", org: "Mountainside Lutheran Church", current: true },
-  { period: "2021–Present", role: "Chaplain", org: "AUT (Auckland University of Technology)", current: true },
-  { period: "2015–Present", role: "Adjunct Faculty", org: "Concordia Theological Seminary", current: true },
-  { period: "2015–Present", role: "Focusing Trainer & Psychotherapist", org: "Private Practice, NZ", current: true },
-  { period: "2013–2020", role: "Minister / Pastor 牧師", org: "Chinese Lutheran Church, NZ", current: false },
-  { period: "2001–2005", role: "Primary School Teacher 小學教師", org: "Hong Kong", current: false },
+  { period: "2020-Present", role: "Evangelist 傳道", org: "Mountainside Lutheran Church", current: true },
+  { period: "2021-Present", role: "Chaplain", org: "AUT (Auckland University of Technology)", current: true },
+  { period: "2015-Present", role: "Adjunct Faculty", org: "Concordia Theological Seminary", current: true },
+  { period: "2016-Present", role: "Visiting Lecturer", org: "Alliance Bible Seminary", current: true },
+  { period: "2015-Present", role: "Consultant", org: "Design for change (HK)", current: true },
+  { period: "2016-Present", role: "Consultant", org: "Hong Kong Professional Family Cultivation Association", current: true },
+  { period: "2016-2023", role: "Manager / Principal Trainer", org: "Design For Change (New Zealand)", current: false },
+  { period: "2009-2019", role: "Founder / Clinical Supervisor", org: "Family Counselling Centre - LCHKS", current: false },
+  { period: "2012-2019", role: "Clinical Supervisor", org: "Monash University", current: false },
+  { period: "2016-2019", role: "Consultant", org: "Design For Change (Australia)", current: false },
+  { period: "1996-2009", role: "Guidance Master", org: "Concordia Lutheran School - North Point", current: false },
+  { period: "2006-2007", role: "Lecturer", org: "Upper Iowa University", current: false },
 ];
 
 export default function ExperienceSection() {
@@ -25,7 +31,7 @@ export default function ExperienceSection() {
             EXPERIENCE
           </h2>
           <p className="heading-sub">
-            The special training I received in HIS garden...
+            The special training I received in HIS garden......
           </p>
           <div className="gold-line mt-4" />
         </motion.div>
@@ -34,28 +40,24 @@ export default function ExperienceSection() {
           {experiences.map((exp, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
               className="card-warm"
             >
               <div className="flex items-start justify-between gap-2">
-                <span className="text-xs uppercase tracking-wider text-accent font-semibold font-body">
+                <span className="text-xs uppercase tracking-wider text-accent font-semibold flex-shrink-0">
                   {exp.period}
                 </span>
                 {exp.current && (
-                  <span className="text-[10px] uppercase tracking-wider bg-accent/15 text-accent px-2 py-0.5 rounded-full font-semibold">
-                    Current
-                  </span>
+                  <span className="badge-current">Current</span>
                 )}
               </div>
-              <h3 className="text-base font-display font-semibold text-foreground mt-2">
+              <h3 className="text-xl font-bold text-text-primary mb-1 mt-2">
                 {exp.role}
               </h3>
-              <p className="text-sm text-muted-foreground font-body mt-1">
-                {exp.org}
-              </p>
+              <p className="text-text-secondary">{exp.org}</p>
             </motion.div>
           ))}
         </div>
