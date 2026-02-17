@@ -28,14 +28,14 @@ const publications = [
   },
   {
     type: "co-author",
-    title: "Embrace Me: A Journey of Love and Acceptance",
-    titleZh: "擁抱我：愛與接納之旅",
+    title: "Please Embrace Me: A Child's Prayer",
+    titleZh: "《請擁抱我——孩子的祈願》",
     author: "Co-author",
     year: "2023",
-    publisher: "Hong Kong Church Renewal Movement",
+    publisher: "香港學園傳道會出版 (Hong Kong Cru Ministry)",
     language: "Chinese",
     url: "https://www.hkccc.org/embraceme",
-    description: "A collaborative book exploring themes of love, acceptance, and spiritual growth in the Christian community.",
+    description: "A collaborative book exploring themes of love, acceptance, and understanding children's spiritual and emotional needs.",
     icon: Users,
   },
   {
