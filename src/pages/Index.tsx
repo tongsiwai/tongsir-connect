@@ -1,6 +1,6 @@
 import HeroSection from "@/components/home/HeroSection";
-import EducationSection from "@/components/home/EducationSection";
 import ExperienceSection from "@/components/home/ExperienceSection";
+import EducationSection from "@/components/home/EducationSection";
 import PublicationsSection from "@/components/home/PublicationsSection";
 import SkillsSection from "@/components/home/SkillsSection";
 import BlogSection from "@/components/home/BlogSection";
@@ -10,8 +10,8 @@ export default function Index() {
   return (
     <>
       <HeroSection />
-      <EducationSection />
       <ExperienceSection />
+      <EducationSection />
       <PublicationsSection />
       <SkillsSection />
       <BlogSection />
