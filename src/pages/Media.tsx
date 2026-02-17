@@ -27,7 +27,7 @@ const channels = [
       },
       {
         id: "hoQ8XTYQTZc",
-        title: "我有"真．悔改"?... 有就可以開始個人的 Reformation (宗教改革/復原)」??",
+        title: "我有\u201C真．悔改\u201D?... 有就可以開始個人的 Reformation (宗教改革/復原)」??",
         views: "109次觀看",
         date: "1年前",
       },
