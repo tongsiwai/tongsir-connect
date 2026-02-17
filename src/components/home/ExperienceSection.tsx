@@ -23,16 +23,6 @@ const experiences = [
     color: "from-purple-500/20 to-purple-600/20",
   },
   {
-    role: "Associate Dean of Family Ministry",
-    roleZh: "漢語網絡神學院家庭事工系副系主任",
-    organization: "Chinese Christian Online Seminary of Theology (COST)",
-    organizationZh: "漢語網絡神學院",
-    period: "Present 現任",
-    description: "Leading family ministry education and theological training",
-    icon: GraduationCap,
-    color: "from-indigo-500/20 to-indigo-600/20",
-  },
-  {
     role: "Consultant",
     roleZh: "顧問",
     organization: "Design For Change Hong Kong",
@@ -96,20 +86,20 @@ const experiences = [
 
 const teachingRoles = [
   {
+    title: "Associate Dean of Family Ministry",
+    titleZh: "家庭事工系副系主任",
+    institution: "Chinese Christian Online Seminary of Theology (COST)",
+    institutionZh: "漢語網絡神學院",
+  },
+  {
     title: "Professor of Practical Theology",
     titleZh: "實用神學教授",
     institution: "Concordia Seminary",
     institutionZh: "協同神學院",
   },
   {
-    title: "Associate Dean of Family Ministry",
-    titleZh: "家庭事工系副系主任",
-    institution: "Chinese Christian Online Seminary of Theology",
-    institutionZh: "漢語網絡神學院",
-  },
-  {
-    title: "Life Growth Camp Facilitator",
-    titleZh: "生命成長營導師",
+    title: "Guest Lecturer - Life Growth Course",
+    titleZh: "生命成長課程客席講師",
     institution: "Alliance Bible Seminary",
     institutionZh: "建道神學院",
   },
