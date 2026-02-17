@@ -105,15 +105,6 @@ const teachingRoles = [
   },
 ];
 
-const affiliations = [
-  {
-    title: "Pastoral Counseling Association Committee Member (Volunteer)",
-    titleZh: "教牧輔導協會委員(義務)",
-    org: "Alliance Bible Seminary",
-    period: "2007-2009",
-  },
-];
-
 export default function ExperienceSection() {
   return (
     <section className="section-padding">
@@ -203,44 +194,21 @@ export default function ExperienceSection() {
           </div>
         </div>
 
-        {/* Professional Affiliations */}
+        {/* Counseling Experience Highlight */}
         <div>
-          <h3 className="text-2xl font-display font-semibold mb-8 text-center">
-            Professional Memberships <span className="font-chinese text-muted-foreground">專業會員</span>
-          </h3>
-          <div className="max-w-4xl mx-auto space-y-4">
+          <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="bg-accent/5 p-6 rounded-lg border-l-4 border-accent"
+              className="bg-accent/5 p-8 rounded-lg border-l-4 border-accent"
             >
-              <div className="flex items-center gap-3 mb-2">
-                <Users className="w-5 h-5 text-accent" />
-                <span className="text-sm text-accent font-medium">2007-2009</span>
+              <div className="flex items-center gap-3 mb-3">
+                <Heart className="w-6 h-6 text-accent" />
               </div>
-              <h4 className="font-semibold text-foreground">
-                Pastoral Counseling Association Committee Member (Volunteer)
-              </h4>
-              <p className="font-chinese text-sm text-muted-foreground mt-1">
-                教牧輔導協會委員(義務)
-              </p>
-              <p className="text-sm text-muted-foreground mt-2">Alliance Bible Seminary 建道神學院</p>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="bg-accent/5 p-6 rounded-lg border-l-4 border-accent"
-            >
-              <div className="flex items-center gap-3 mb-2">
-                <Heart className="w-5 h-5 text-accent" />
-              </div>
-              <h4 className="font-semibold text-foreground">Over 10+ Years of Counseling Experience</h4>
-              <p className="font-chinese text-sm text-muted-foreground mt-1">超過十多年輔導經驗</p>
-              <p className="text-sm text-muted-foreground mt-2">
+              <h4 className="text-xl font-semibold text-foreground mb-2">Over 20+ Years of Counseling Experience</h4>
+              <p className="font-chinese text-base text-muted-foreground mt-1 mb-3">超過二十多年輔導經驗</p>
+              <p className="text-base text-muted-foreground leading-relaxed">
                 Specializing in marriage & family therapy, spiritual direction, and focusing-oriented therapy
               </p>
             </motion.div>
