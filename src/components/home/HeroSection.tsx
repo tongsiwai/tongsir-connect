@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import heroPortrait from "@/assets/hero-portrait.jpg";
+import heroPortrait from "@/assets/Felix.jpg";
 
 const roles = [
   "崇拜者 Worshiper",
