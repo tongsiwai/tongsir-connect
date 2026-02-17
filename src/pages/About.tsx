@@ -1,10 +1,61 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Heart, Globe, BookOpen, Users, Award, Lightbulb } from "lucide-react";
+import { Heart, Globe, BookOpen, Users, Award, Lightbulb, GraduationCap } from "lucide-react";
 import felixPhoto from "@/assets/Felix2.jpg";
 import mslcPhoto1 from "@/assets/MSLC02.jpg";
 import mslcPhoto2 from "@/assets/MSLC03.jpg";
 import portMacquairePhoto from "@/assets/FelixPortMacquaire.jpg";
+
+const education = [
+  {
+    degree: "Doctor of Ministry (D.Min)",
+    degreeZh: "教牧學博士",
+    field: "Spiritual Direction 靈修指導",
+    institution: "Graduate Theological Foundation, USA",
+    institutionZh: "美國神學研究協會",
+    icon: GraduationCap,
+  },
+  {
+    degree: "Master of Christian Studies (MCS)",
+    degreeZh: "基督教研究碩士",
+    field: "Marriage & Family Therapy 婚姻家庭治療",
+    institution: "Alliance Bible Seminary, Hong Kong",
+    institutionZh: "建道神學院",
+    icon: GraduationCap,
+  },
+  {
+    degree: "Master of Counselling",
+    degreeZh: "輔導學碩士",
+    field: "Counselling 輔導學",
+    institution: "University of South Australia",
+    institutionZh: "南澳洲大學",
+    icon: GraduationCap,
+  },
+  {
+    degree: "Master of Applied Management",
+    degreeZh: "應用管理碩士",
+    field: "Applied Management",
+    institution: "Otago Polytechnic, New Zealand",
+    institutionZh: "奧塔哥理工學院",
+    icon: GraduationCap,
+  },
+  {
+    degree: "Diploma in Theology",
+    degreeZh: "神學文憑",
+    field: "Lutheran Theology 信義宗神學",
+    institution: "Australian Lutheran College",
+    institutionZh: "澳洲神學大學信義宗神學院",
+    icon: BookOpen,
+  },
+  {
+    degree: "Bachelor of Science (BSc)",
+    degreeZh: "理學士",
+    field: "Computer Science 電子計算機科學",
+    institution: "Hong Kong University of Science and Technology",
+    institutionZh: "香港科技大學",
+    icon: GraduationCap,
+  },
+];
 
 export default function About() {
   return (
@@ -74,8 +125,52 @@ export default function About() {
         </div>
       </section>
 
-      {/* Ministry Photos Section */}
+      {/* Academic Degrees Section */}
       <section className="section-padding bg-muted/30">
+        <div className="container-wide mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+              Academic Degrees
+            </h2>
+            <p className="text-xl font-chinese text-muted-foreground">學歷</p>
+            <div className="gold-line-center mt-6" />
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {education.map((edu, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-card p-6 rounded-lg shadow-sm border border-accent/10 hover:border-accent/30 transition-colors"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-accent/10 rounded-lg">
+                    <edu.icon className="w-6 h-6 text-accent" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-lg text-foreground">{edu.degree}</h4>
+                    <p className="font-chinese text-muted-foreground text-sm">{edu.degreeZh}</p>
+                    <p className="text-sm text-accent mt-2">{edu.field}</p>
+                    <p className="text-sm text-muted-foreground mt-1">{edu.institution}</p>
+                    <p className="font-chinese text-xs text-muted-foreground">{edu.institutionZh}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Ministry Photos Section */}
+      <section className="section-padding">
         <div className="container-wide mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -153,7 +248,7 @@ export default function About() {
       </section>
 
       {/* Specializations Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-muted/30">
         <div className="container-wide mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -238,7 +333,7 @@ export default function About() {
       </section>
 
       {/* Professional Credentials Highlight */}
-      <section className="section-padding bg-muted/30">
+      <section className="section-padding">
         <div className="container-wide mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -307,7 +402,7 @@ export default function About() {
       </section>
 
       {/* Recognition Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-muted/30">
         <div className="container-wide mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
