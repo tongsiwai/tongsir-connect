@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Heart, Globe, BookOpen, Users, Award, Lightbulb } from "lucide-react";
+import { Heart, Globe, BookOpen, Users, Award, Lightbulb, Book } from "lucide-react";
 import felixPhoto from "@/assets/Felix2.jpg";
 import mslcPhoto1 from "@/assets/MSLC02.jpg";
 import mslcPhoto2 from "@/assets/MSLC03.jpg";
@@ -360,6 +360,84 @@ export default function About() {
                 </div>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Publications Section - NEW */}
+      <section className="section-padding bg-muted/30">
+        <div className="container-wide mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+              Publications
+            </h2>
+            <p className="text-xl font-chinese text-muted-foreground">出版著作</p>
+          </motion.div>
+
+          <div className="max-w-5xl mx-auto space-y-6">
+            {[
+              {
+                title: "請擁抱我——孩子的祈願",
+                titleEn: "Please Embrace Me - A Child's Prayer",
+                publisher: "香港學園傳道會出版",
+                publisherEn: "Hong Kong Campus Evangelical Fellowship",
+                year: "2024",
+                description: "一本關於孩子情感需要與家長教養的書籍，探討如何通過擁抱與關愛，建立健康的親子關係。",
+                descriptionEn: "A book about children's emotional needs and parenting, exploring how to build healthy parent-child relationships through embrace and love.",
+              },
+              {
+                title: "返家 ● 星期五：回家建立家庭崇拜，能這樣簡單嗎？",
+                titleEn: "Coming Home Friday: Building Family Worship - Can It Be This Simple?",
+                publisher: "香港路德會社會服務處",
+                publisherEn: "Hong Kong Lutheran Social Service",
+                year: "2021",
+                description: "指導家庭如何建立簡單而有意義的家庭崇拜，強化家人之間的屬靈連結。",
+                descriptionEn: "A guide on how families can establish simple yet meaningful family worship, strengthening spiritual connections among family members.",
+              },
+              {
+                title: "愛，就是這樣簡單：一本給家長和從事兒童事工朋友的工具書",
+                titleEn: "Love, It's That Simple: A Toolkit for Parents and Children's Ministry Workers",
+                publisher: "香港路德會社會服務處",
+                publisherEn: "Hong Kong Lutheran Social Service",
+                year: "2018",
+                description: "實用的教養工具書，幫助家長和兒童事工者更有效地與孩子溝通和建立關係。",
+                descriptionEn: "A practical parenting toolkit helping parents and children's ministry workers communicate more effectively with children and build relationships.",
+              },
+            ].map((book, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-card p-8 rounded-xl border border-accent/10 hover:border-accent/30 transition-all hover:shadow-xl"
+              >
+                <div className="flex items-start gap-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-20 bg-gradient-to-br from-accent/20 to-accent/10 rounded-lg flex items-center justify-center border-2 border-accent/30">
+                      <Book className="w-8 h-8 text-accent" />
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <div className="mb-4">
+                      <h3 className="text-2xl font-bold text-foreground mb-2 font-chinese">{book.title}</h3>
+                      <p className="text-lg text-muted-foreground mb-3">{book.titleEn}</p>
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        <span className="px-3 py-1 bg-accent/20 text-accent text-sm rounded-full font-semibold">{book.year}</span>
+                        <span className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full">{book.publisher}</span>
+                      </div>
+                    </div>
+                    <p className="text-base text-muted-foreground leading-relaxed mb-2 font-chinese">{book.description}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{book.descriptionEn}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
