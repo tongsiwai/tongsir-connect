@@ -51,22 +51,22 @@ export default function About() {
               className="lg:col-span-2 bg-card p-8 md:p-10 rounded-2xl shadow-lg border border-accent/20"
             >
               <div className="prose prose-lg max-w-none">
-                <p className="text-lg leading-relaxed text-foreground mb-6">
-                  <span className="font-semibold text-accent">唐思偉博士 (Dr. Felix Tong)</span> 乃<strong>紐西蘭信義會蒙恩堂傳道</strong>，負責華人事工及開展，並為<strong>奧克蘭理工大學校牧</strong>，亦是全球性創意教育運動 <strong>Design For Change (New Zealand)</strong> 紐西蘭地區代表，及<strong>香港專業家庭教育協會顧問</strong>。
+                <p className="text-lg leading-relaxed text-foreground mb-6 font-chinese">
+                  <span className="font-semibold text-accent">唐思偉博士 (Dr. Felix Tong)</span> 乃<strong>紐西蘭信義會蒙恩堂牧師</strong>，負責華人事工及開展，並為<strong>奧克蘭理工大學校牧</strong>，亦是<strong>漢語網絡神學院家庭事工系副系主任</strong>，及<strong>Design For Change Hong Kong 顧問</strong>。
                 </p>
                 
                 <p className="text-base leading-relaxed text-muted-foreground mb-6">
-                  Dr. Felix Tong serves as Minister at Mountainside Lutheran Church in New Zealand, leading Chinese ministry development and outreach. He is also the University Chaplain at Auckland University of Technology, the New Zealand representative for Design For Change (a global creative education movement), and a consultant for the Hong Kong Professional Family Education Association.
+                  Dr. Felix Tong serves as <strong>Pastor</strong> at Mountainside Lutheran Church in New Zealand, leading Chinese ministry development and outreach. He is also the University Chaplain at Auckland University of Technology, <strong>Associate Dean of Family Ministry at Chinese Christian Online Seminary of Theology (COST)</strong>, and a consultant for Design For Change Hong Kong.
                 </p>
 
                 <div className="my-6 p-6 bg-accent/5 rounded-lg border-l-4 border-accent">
-                  <p className="text-base leading-relaxed text-foreground">
-                    曾擔任<strong>路德會家庭輔導中心創辦主任兼臨床督導</strong>，中學輔導主任及多間大專院校及神學院客席講師。早年畢業於香港科技大學，其後獲取南澳洲大學輔導學碩士，建道神學院基督教研究碩士(主修婚姻家庭治療)及婚姻及家庭治療文憑，並修畢美國神學研究協會教牧學博士課程，主修<strong>靈修指導</strong>。
+                  <p className="text-base leading-relaxed text-foreground font-chinese">
+                    曾擔任<strong>路德會家庭輔導中心創辦主任兼臨床督導</strong>，中學輔導主任及多間大專院校及神學院客席講師。早年畢業於香港科技大學，其後獲取南澳洲大學輔導學碩士，建道神學院基督教研究碩士(主修婚姻家庭治療)及婚姻及家庭治療文憑，並修畢美國研究生神學基金會教牧學博士課程，主修<strong>靈修指導</strong>。
                   </p>
                 </div>
 
                 <p className="text-sm leading-relaxed text-muted-foreground">
-                  Previously, Dr. Tong served as Founding Director and Clinical Supervisor of the Lutheran Family Counselling Centre, Secondary School Counselor, and Guest Lecturer at multiple universities and theological seminaries. He graduated from Hong Kong University of Science and Technology, and later obtained a Master of Counselling from University of South Australia, Master of Christian Studies (Marriage and Family Therapy) from Alliance Bible Seminary, and completed his Doctor of Ministry program specializing in <strong>Spiritual Direction</strong> from the Theological Research Exchange Network, USA.
+                  Previously, Dr. Tong served as Founding Director and Clinical Supervisor of the Lutheran Family Counselling Centre, Secondary School Counselor, and Guest Lecturer at multiple universities and theological seminaries. He graduated from Hong Kong University of Science and Technology, and later obtained a Master of Counselling from University of South Australia, Master of Christian Studies (Marriage and Family Therapy) from Alliance Bible Seminary, and completed his <strong>Doctor of Ministry</strong> program specializing in Spiritual Direction from the <strong>Graduate Theological Foundation</strong>, USA.
                 </p>
               </div>
             </motion.div>
@@ -208,7 +208,7 @@ export default function About() {
                 icon: Award,
                 title: "Character Education",
                 titleZh: "品格教育",
-                description: "6A Character Education certified instructor and Design For Change advocate",
+                description: "6A Character Education certified instructor and Design For Change Hong Kong consultant",
                 color: "from-cyan-500/20 to-blue-500/20",
               },
             ].map((item, index) => (
@@ -271,9 +271,9 @@ export default function About() {
                   badge: "APCA",
                 },
                 {
-                  title: "Registered Counselor (MACA)",
-                  org: "Australian Counseling Association",
-                  badge: "ACA",
+                  title: "Registered Counselor Level 4",
+                  org: "Australian Counselling Association",
+                  badge: "ACA Level 4",
                 },
                 {
                   title: "Certified Bringing Baby Home Educator",
@@ -379,7 +379,7 @@ export default function About() {
             <p className="text-xl font-chinese text-muted-foreground mb-12">服務的旅程</p>
             
             <div className="prose prose-lg max-w-none text-muted-foreground">
-              <p className="text-lg leading-relaxed mb-6">
+              <p className="text-lg leading-relaxed mb-6 font-chinese">
                 唐博士擁有十多年輔導經驗，專注於婚姻家庭治療、靈修指導及聚焦取向心理治療。他致力於跨文化事工，在奧克蘭服事華人社群，同時亦為大學生提供牧養關懷。
               </p>
               <p className="text-lg leading-relaxed">
