@@ -54,14 +54,8 @@ const education = [
 
 const certifications = [
   {
-    title: "Certified Focusing Trainer",
-    titleZh: "認證聚焦導師",
-    org: "The Focusing Institute, USA",
-    icon: Award,
-  },
-  {
-    title: "Focusing-Oriented Therapist",
-    titleZh: "聚焦取向治療師",
+    title: "Certified Focusing Trainer & Focusing-Oriented Therapist",
+    titleZh: "認證聚焦導師 & 聚焦取向治療師",
     org: "The Focusing Institute, USA",
     icon: Award,
   },
