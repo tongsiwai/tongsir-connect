@@ -1,11 +1,15 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Heart, Globe, BookOpen, Users, Award, Lightbulb } from "lucide-react";
+import felixPhoto from "@/assets/Felix2.jpg";
+import mslcPhoto1 from "@/assets/MSLC02.jpg";
+import mslcPhoto2 from "@/assets/MSLC03.jpg";
+import portMacquairePhoto from "@/assets/FelixPortMacquaire.jpg";
 
 export default function About() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
+      {/* Hero Section with Photo */}
       <section className="section-padding bg-gradient-to-b from-accent/10 to-background">
         <div className="container-wide mx-auto">
           <motion.div
@@ -20,30 +24,129 @@ export default function About() {
             <div className="gold-line-center mt-6" />
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="max-w-4xl mx-auto bg-card p-8 md:p-12 rounded-2xl shadow-lg border border-accent/20"
-          >
-            <div className="prose prose-lg max-w-none">
-              <p className="text-lg leading-relaxed text-foreground mb-6">
-                <span className="font-semibold text-accent">唐思偉博士 (Dr. Felix Tong)</span> 乃<strong>紐西蘭信義會蒙恩堂傳道</strong>，負責華人事工及開展，並為<strong>奧克蘭理工大學校牧</strong>，亦是全球性創意教育運動 <strong>Design For Change (New Zealand)</strong> 紐西蘭地區代表，及<strong>香港專業家庭教育協會顧問</strong>。
-              </p>
-              
-              <p className="text-lg leading-relaxed text-muted-foreground mb-6">
-                Dr. Felix Tong serves as Minister at Mountainside Lutheran Church in New Zealand, leading Chinese ministry development and outreach. He is also the University Chaplain at Auckland University of Technology, the New Zealand representative for Design For Change (a global creative education movement), and a consultant for the Hong Kong Professional Family Education Association.
-              </p>
+          {/* Photo + Bio Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            {/* Profile Photo */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+              className="lg:col-span-1"
+            >
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl translate-x-3 translate-y-3" />
+                <img
+                  src={felixPhoto}
+                  alt="Dr. Felix Tong - 唐思偉博士"
+                  className="relative rounded-2xl w-full object-cover shadow-xl border-2 border-accent/20"
+                />
+              </div>
+            </motion.div>
 
-              <div className="my-8 p-6 bg-accent/5 rounded-lg border-l-4 border-accent">
-                <p className="text-base leading-relaxed text-foreground">
-                  曾擔任<strong>路德會家庭輔導中心創辦主任兼臨床督導</strong>，中學輔導主任及多間大專院校及神學院客席講師。早年畢業於香港科技大學，其後獲取南澳洲大學輔導學碩士，建道神學院基督教研究碩士(主修婚姻家庭治療)及婚姻及家庭治療文憑，並修畢美國神學研究協會教牧學博士課程，主修<strong>靈修指導</strong>。
+            {/* Biography Text */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 }}
+              className="lg:col-span-2 bg-card p-8 md:p-10 rounded-2xl shadow-lg border border-accent/20"
+            >
+              <div className="prose prose-lg max-w-none">
+                <p className="text-lg leading-relaxed text-foreground mb-6">
+                  <span className="font-semibold text-accent">唐思偉博士 (Dr. Felix Tong)</span> 乃<strong>紐西蘭信義會蒙恩堂傳道</strong>，負責華人事工及開展，並為<strong>奧克蘭理工大學校牧</strong>，亦是全球性創意教育運動 <strong>Design For Change (New Zealand)</strong> 紐西蘭地區代表，及<strong>香港專業家庭教育協會顧問</strong>。
+                </p>
+                
+                <p className="text-base leading-relaxed text-muted-foreground mb-6">
+                  Dr. Felix Tong serves as Minister at Mountainside Lutheran Church in New Zealand, leading Chinese ministry development and outreach. He is also the University Chaplain at Auckland University of Technology, the New Zealand representative for Design For Change (a global creative education movement), and a consultant for the Hong Kong Professional Family Education Association.
+                </p>
+
+                <div className="my-6 p-6 bg-accent/5 rounded-lg border-l-4 border-accent">
+                  <p className="text-base leading-relaxed text-foreground">
+                    曾擔任<strong>路德會家庭輔導中心創辦主任兼臨床督導</strong>，中學輔導主任及多間大專院校及神學院客席講師。早年畢業於香港科技大學，其後獲取南澳洲大學輔導學碩士，建道神學院基督教研究碩士(主修婚姻家庭治療)及婚姻及家庭治療文憑，並修畢美國神學研究協會教牧學博士課程，主修<strong>靈修指導</strong>。
+                  </p>
+                </div>
+
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  Previously, Dr. Tong served as Founding Director and Clinical Supervisor of the Lutheran Family Counselling Centre, Secondary School Counselor, and Guest Lecturer at multiple universities and theological seminaries. He graduated from Hong Kong University of Science and Technology, and later obtained a Master of Counselling from University of South Australia, Master of Christian Studies (Marriage and Family Therapy) from Alliance Bible Seminary, and completed his Doctor of Ministry program specializing in <strong>Spiritual Direction</strong> from the Theological Research Exchange Network, USA.
                 </p>
               </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
-              <p className="text-base leading-relaxed text-muted-foreground mb-6">
-                Previously, Dr. Tong served as Founding Director and Clinical Supervisor of the Lutheran Family Counselling Centre, Secondary School Counselor, and Guest Lecturer at multiple universities and theological seminaries. He graduated from Hong Kong University of Science and Technology, and later obtained a Master of Counselling from University of South Australia, Master of Christian Studies (Marriage and Family Therapy) from Alliance Bible Seminary, and completed his Doctor of Ministry program specializing in <strong>Spiritual Direction</strong> from the Theological Research Exchange Network, USA.
-              </p>
+      {/* Ministry Photos Section */}
+      <section className="section-padding bg-muted/30">
+        <div className="container-wide mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+              Ministry & Service
+            </h2>
+            <p className="text-xl font-chinese text-muted-foreground">事工與服務</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="group relative overflow-hidden rounded-xl"
+            >
+              <img
+                src={mslcPhoto1}
+                alt="Mountainside Lutheran Church - 信義會蒙恩堂"
+                className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                <div className="p-6 text-white">
+                  <p className="text-lg font-semibold">Mountainside Lutheran Church</p>
+                  <p className="font-chinese text-sm">紐西蘭信義會蒙恩堂</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="group relative overflow-hidden rounded-xl"
+            >
+              <img
+                src={mslcPhoto2}
+                alt="Church Ministry - 教會事工"
+                className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                <div className="p-6 text-white">
+                  <p className="text-lg font-semibold">Community Worship</p>
+                  <p className="font-chinese text-sm">群體崇拜</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mt-6 relative overflow-hidden rounded-xl"
+          >
+            <img
+              src={portMacquairePhoto}
+              alt="Dr. Felix Tong - Port Macquaire"
+              className="w-full h-96 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end">
+              <div className="p-8 text-white">
+                <p className="text-xl font-semibold">Serving Across Cultures</p>
+                <p className="font-chinese text-base">跨文化事工服務</p>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -248,7 +351,7 @@ export default function About() {
               <div className="flex items-start gap-4">
                 <Award className="w-12 h-12 text-accent flex-shrink-0" />
                 <div>
-                  <p className="text-accent font-semibold mb-2">2009 • 第六屆</p>
+                  <p className="text-accent font-semibold mb-2">2009 • 第六届</p>
                   <h3 className="text-2xl font-bold text-foreground mb-2">Outstanding Teacher Award (Caring)</h3>
                   <p className="font-chinese text-lg text-muted-foreground mb-3">香港優秀教師獎(關愛組)</p>
                   <p className="text-sm text-muted-foreground">
