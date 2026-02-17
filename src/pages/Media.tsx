@@ -3,8 +3,8 @@ import { Youtube, ExternalLink } from "lucide-react";
 
 const channels = [
   {
-    name: "Felix Tong 個人頻道",
-    nameEn: "Felix Tong Personal Channel",
+    name: "躺瀑新活頻道",
+    nameEn: "Slow Flow New Life Channel",
     url: "https://www.youtube.com/@FelixTong",
     videos: [
       {
@@ -40,8 +40,8 @@ const channels = [
     ],
   },
   {
-    name: "躺瀡新活頻道",
-    nameEn: "Slow Flow New Life Channel",
+    name: "信義會蒙恩堂崇拜直播",
+    nameEn: "Mountainside Lutheran Church Live-stream",
     url: "https://www.youtube.com/@SlowFlowNewLifeChannel",
     videos: [
       {
