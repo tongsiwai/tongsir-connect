@@ -9,7 +9,7 @@ const roles = [
   "教師/講師 Teacher & Lecturer",
   "聚焦導師 Certified Focusing Trainer",
   "聚焦取向心理治療師 Focusing-Oriented Therapist",
-  "傳道 Minister",
+  "牧師 Pastor",
   "校牧 University Chaplain",
 ];
 
@@ -33,8 +33,8 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4 font-body">
-              輔導員 · 傳道 · 教育工作者
+            <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4 font-body font-chinese">
+              輔導員 · 牧師 · 教育工作者
             </p>
             <p className="text-xs uppercase tracking-widest text-accent/70 mb-2">
               Counselor · Pastor · Educator
@@ -42,7 +42,7 @@ export default function HeroSection() {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight text-foreground leading-[1.1] mb-3">
               TongSir
             </h1>
-            <p className="text-2xl md:text-3xl font-display text-muted-foreground">
+            <p className="text-2xl md:text-3xl font-display text-muted-foreground font-chinese">
               唐思偉博士
             </p>
             <p className="text-xl md:text-2xl font-display text-muted-foreground/80 mt-1">
@@ -73,11 +73,11 @@ export default function HeroSection() {
             transition={{ delay: 0.8, duration: 0.7 }}
             className="mt-8 space-y-4"
           >
-            <p className="text-base text-muted-foreground max-w-xl leading-relaxed font-body">
-              <span className="font-semibold text-foreground">紐西蘭信義會蒙恩堂傳道</span>，負責華人事工及開展，並為<span className="font-semibold text-foreground">奧克蘭理工大學校牧</span>。
+            <p className="text-base text-muted-foreground max-w-xl leading-relaxed font-body font-chinese">
+              <span className="font-semibold text-foreground">紐西蘭信義會蒙恩堂牧師</span>，負責華人事工及開展，並為<span className="font-semibold text-foreground">奧克蘭理工大學校牧</span>。
             </p>
             <p className="text-base text-muted-foreground max-w-xl leading-relaxed font-body">
-              Minister at Mountainside Lutheran Church, New Zealand, serving Chinese ministry and Auckland University of Technology Chaplain.
+              Pastor at Mountainside Lutheran Church, New Zealand, serving Chinese ministry and Auckland University of Technology Chaplain.
             </p>
             <div className="flex flex-wrap gap-2 mt-6">
               <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">🌏 Auckland, NZ</span>
