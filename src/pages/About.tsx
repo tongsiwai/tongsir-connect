@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Heart, Globe, BookOpen, Users, Award, Lightbulb } from "lucide-react";
 
 export default function About() {
@@ -284,12 +285,12 @@ export default function About() {
             </div>
 
             <div className="mt-12 flex flex-wrap justify-center gap-4">
-              <a href="/booking" className="px-8 py-3 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors font-semibold">
+              <Link to="/booking" className="px-8 py-3 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors font-semibold">
                 Book a Session 預約輔導
-              </a>
-              <a href="/contact" className="px-8 py-3 bg-card border border-accent/30 text-foreground rounded-lg hover:bg-accent/10 transition-colors font-semibold">
+              </Link>
+              <Link to="/contact" className="px-8 py-3 bg-card border border-accent/30 text-foreground rounded-lg hover:bg-accent/10 transition-colors font-semibold">
                 Get in Touch 聯絡我們
-              </a>
+              </Link>
             </div>
           </motion.div>
         </div>
