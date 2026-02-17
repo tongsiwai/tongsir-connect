@@ -7,7 +7,7 @@ const education = [
     degreeZh: "教牧學博士",
     field: "Spiritual Direction 靈修指導",
     institution: "Graduate Theological Foundation, USA",
-    institutionZh: "美國研究生神學基金會",
+    institutionZh: "美國神學研究協會",
     icon: GraduationCap,
   },
   {
