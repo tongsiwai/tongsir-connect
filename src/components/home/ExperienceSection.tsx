@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { Briefcase, Church, School, Heart, Users, BookOpen } from "lucide-react";
+import { Briefcase, Church, School, Heart, Users, BookOpen, GraduationCap } from "lucide-react";
 
 const experiences = [
   {
-    role: "Minister & Chinese Ministry Leader",
-    roleZh: "傳道及華人事工負責人",
+    role: "Pastor & Chinese Ministry Leader",
+    roleZh: "牧師及華人事工負責人",
     organization: "Mountainside Lutheran Church, New Zealand",
     organizationZh: "紐西蘭信義會蒙恩堂",
     period: "Present 現任",
@@ -23,12 +23,22 @@ const experiences = [
     color: "from-purple-500/20 to-purple-600/20",
   },
   {
-    role: "Design For Change New Zealand Representative",
-    roleZh: "Design For Change 紐西蘭地區代表",
-    organization: "Design For Change (Global Creative Education Movement)",
-    organizationZh: "全球性創意教育運動",
+    role: "Associate Dean of Family Ministry",
+    roleZh: "漢語網絡神學院家庭事工系副系主任",
+    organization: "Chinese Christian Online Seminary of Theology (COST)",
+    organizationZh: "漢語網絡神學院",
     period: "Present 現任",
-    description: "Leading creative education initiatives in New Zealand",
+    description: "Leading family ministry education and theological training",
+    icon: GraduationCap,
+    color: "from-indigo-500/20 to-indigo-600/20",
+  },
+  {
+    role: "Consultant",
+    roleZh: "顧問",
+    organization: "Design For Change Hong Kong",
+    organizationZh: "Design For Change 香港",
+    period: "Present 現任",
+    description: "Advising on creative education and character development initiatives",
     icon: Users,
     color: "from-green-500/20 to-green-600/20",
   },
@@ -41,6 +51,16 @@ const experiences = [
     description: "Providing expertise in family education and counseling",
     icon: Heart,
     color: "from-pink-500/20 to-pink-600/20",
+  },
+  {
+    role: "Design For Change New Zealand Representative",
+    roleZh: "Design For Change 紐西蘭地區代表",
+    organization: "Design For Change (Global Creative Education Movement)",
+    organizationZh: "全球性創意教育運動",
+    period: "Past Experience",
+    description: "Led creative education initiatives in New Zealand",
+    icon: Users,
+    color: "from-emerald-500/20 to-emerald-600/20",
   },
   {
     role: "Founding Director & Clinical Supervisor",
@@ -70,7 +90,7 @@ const experiences = [
     period: "Ongoing",
     description: "Teaching counseling, spiritual formation, and pastoral care",
     icon: BookOpen,
-    color: "from-indigo-500/20 to-indigo-600/20",
+    color: "from-cyan-500/20 to-cyan-600/20",
   },
 ];
 
@@ -82,10 +102,10 @@ const teachingRoles = [
     institutionZh: "協同神學院",
   },
   {
-    title: "Spiritual Formation Facilitator",
-    titleZh: "靈命塑造課程導師",
-    institution: "Alliance Bible Seminary - Lay Leadership Training",
-    institutionZh: "建道神學院 - 信徒領袖培訓部",
+    title: "Associate Dean of Family Ministry",
+    titleZh: "家庭事工系副系主任",
+    institution: "Chinese Christian Online Seminary of Theology",
+    institutionZh: "漢語網絡神學院",
   },
   {
     title: "Life Growth Camp Facilitator",
