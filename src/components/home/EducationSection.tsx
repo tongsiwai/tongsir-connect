@@ -6,8 +6,8 @@ const education = [
     degree: "Doctor of Ministry (D.Min)",
     degreeZh: "教牧學博士",
     field: "Spiritual Direction 靈修指導",
-    institution: "Theological Research Exchange Network, USA",
-    institutionZh: "美國神學研究協會",
+    institution: "Graduate Theological Foundation, USA",
+    institutionZh: "美國研究生神學基金會",
     icon: GraduationCap,
   },
   {
