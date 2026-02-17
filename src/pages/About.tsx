@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Heart, Globe, BookOpen, Users, Award, Lightbulb, Book } from "lucide-react";
+import { Heart, Globe, BookOpen, Users, Award, Lightbulb } from "lucide-react";
 import felixPhoto from "@/assets/Felix2.jpg";
 import mslcPhoto1 from "@/assets/MSLC02.jpg";
 import mslcPhoto2 from "@/assets/MSLC03.jpg";
@@ -356,57 +356,6 @@ export default function About() {
                   <p className="font-chinese text-lg text-muted-foreground mb-3">香港優秀教師獎(關愛組)</p>
                   <p className="text-sm text-muted-foreground">
                     Awarded by Hong Kong Federation of Education Workers in recognition of outstanding performance in counseling students and families
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Publications Section */}
-      <section className="section-padding bg-muted/30">
-        <div className="container-wide mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-              Publications
-            </h2>
-            <p className="text-xl font-chinese text-muted-foreground">出版著作</p>
-          </motion.div>
-
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-card p-8 rounded-xl border border-accent/10 hover:border-accent/30 transition-all hover:shadow-xl"
-            >
-              <div className="flex items-start gap-6">
-                <div className="flex-shrink-0">
-                  <div className="w-20 h-28 bg-gradient-to-br from-accent/20 to-accent/10 rounded-lg flex items-center justify-center border-2 border-accent/30">
-                    <Book className="w-10 h-10 text-accent" />
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <div className="mb-4">
-                    <h3 className="text-3xl font-bold text-foreground mb-3 font-chinese">請擁抱我——孩子的祈願</h3>
-                    <p className="text-xl text-muted-foreground mb-4">Please Embrace Me - A Child's Prayer</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="px-4 py-1.5 bg-accent/20 text-accent text-base rounded-full font-semibold">2024</span>
-                      <span className="px-4 py-1.5 bg-muted text-muted-foreground text-sm rounded-full">香港學園傳道會出版</span>
-                      <span className="px-4 py-1.5 bg-muted text-muted-foreground text-sm rounded-full">Hong Kong Campus Evangelical Fellowship</span>
-                    </div>
-                  </div>
-                  <p className="text-base text-muted-foreground leading-relaxed mb-3 font-chinese">
-                    一本關於孩子情感需要與家長教養的書籍，探討如何通過擁抱與關愛，建立健康的親子關係。
-                  </p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    A book about children's emotional needs and parenting, exploring how to build healthy parent-child relationships through embrace and love.
                   </p>
                 </div>
               </div>
