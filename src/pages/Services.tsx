@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Heart, Users, Compass, Brain, Baby, GraduationCap, Video, MapPin } from "lucide-react";
 
 const services = [
@@ -314,12 +315,12 @@ export default function Services() {
               Book a session today to start your path toward healing, growth, and transformation.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/booking" className="px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors font-semibold text-lg">
+              <Link to="/booking" className="px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors font-semibold text-lg">
                 Book a Session 預約輔導
-              </a>
-              <a href="/contact" className="px-8 py-4 bg-card border-2 border-accent text-foreground rounded-lg hover:bg-accent/10 transition-colors font-semibold text-lg">
+              </Link>
+              <Link to="/contact" className="px-8 py-4 bg-card border-2 border-accent text-foreground rounded-lg hover:bg-accent/10 transition-colors font-semibold text-lg">
                 Contact Me 聯絡我
-              </a>
+              </Link>
             </div>
           </motion.div>
         </div>
