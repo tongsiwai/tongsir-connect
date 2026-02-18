@@ -23,6 +23,7 @@ const socialLinks = [
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const location = useLocation();
 
   // Check if current path starts with /blog for highlighting
@@ -49,19 +50,26 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               const isActive = item.path === '/blog' 
                 ? isBlogPath 
                 : location.pathname === item.path;
+              const isHovered = hoveredItem === item.path;
               
               return (
                 <Link
                   key={item.path}
                   to={item.path}
                   onClick={scrollToTop}
+                  onMouseEnter={() => setHoveredItem(item.path)}
+                  onMouseLeave={() => setHoveredItem(null)}
                   className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                     isActive 
                       ? "bg-accent/10 text-accent" 
                       : "text-muted-foreground hover:text-foreground hover:bg-accent/5"
                   }`}
                 >
-                  <span className="font-chinese">{item.label}</span>
+                  <span className="inline-block min-w-max transition-opacity duration-200">
+                    {isHovered ? item.labelEn : (
+                      <span className="font-chinese">{item.label}</span>
+                    )}
+                  </span>
                 </Link>
               );
             })}
