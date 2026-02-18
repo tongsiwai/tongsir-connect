@@ -98,6 +98,8 @@
 
   body {
     @apply bg-background text-foreground font-body antialiased;
+    background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--soft-ivory)));
+    min-height: 100vh;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -124,6 +126,10 @@
 
   .heading-section {
     @apply text-3xl md:text-4xl font-display font-semibold tracking-tight text-foreground;
+    background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--accent)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .heading-sub {
@@ -131,7 +137,33 @@
   }
 
   .card-warm {
-    @apply bg-card rounded-lg border border-border p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+    @apply bg-card rounded-lg border border-border p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+    background: linear-gradient(135deg, hsl(var(--card)), hsl(var(--soft-ivory)));
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-warm::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      hsl(var(--accent) / 0.05) 50%,
+      transparent 70%
+    );
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+  }
+
+  .card-warm:hover::before {
+    opacity: 1;
+    animation: shimmer 1.5s ease-in-out;
   }
 
   .gold-accent {
@@ -139,47 +171,106 @@
   }
 
   .gold-line {
-    @apply w-16 h-0.5 bg-accent;
+    @apply h-0.5;
+    width: 64px;
+    background: linear-gradient(90deg, hsl(var(--accent)), hsl(var(--warm-gold)));
+    box-shadow: 0 2px 8px hsl(var(--accent) / 0.3);
   }
 
   .nav-link {
     @apply relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-200
       after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-4px] after:left-0
-      after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300
+      after:origin-bottom-right after:transition-transform after:duration-300
       hover:after:scale-x-100 hover:after:origin-bottom-left;
   }
 
-  /* Decorative Background Patterns */
+  .nav-link::after {
+    background: linear-gradient(90deg, hsl(var(--accent)), hsl(var(--warm-gold)));
+  }
+
+  /* Enhanced Decorative Background Patterns */
   .bg-pattern-dots {
-    background-image: radial-gradient(circle, hsl(var(--accent) / 0.06) 1px, transparent 1px);
+    background-color: hsl(var(--background));
+    background-image: radial-gradient(circle, hsl(var(--accent) / 0.08) 1px, transparent 1px);
     background-size: 24px 24px;
   }
 
   .bg-pattern-subtle-grid {
+    background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--soft-ivory)));
     background-image: linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
                       linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
     background-size: 60px 60px;
   }
 
   .bg-gradient-warm {
-    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--accent) / 0.04) 100%);
+    background: linear-gradient(135deg, 
+      hsl(var(--background)) 0%, 
+      hsl(var(--accent) / 0.06) 50%,
+      hsl(var(--soft-ivory)) 100%);
   }
 
   .bg-gradient-radial {
-    background: radial-gradient(circle at top right, hsl(var(--accent) / 0.06), transparent 60%),
-                radial-gradient(circle at bottom left, hsl(var(--primary) / 0.04), transparent 60%);
+    background: 
+      radial-gradient(circle at top right, hsl(var(--accent) / 0.08), transparent 60%),
+      radial-gradient(circle at bottom left, hsl(var(--primary) / 0.06), transparent 60%),
+      linear-gradient(to bottom, hsl(var(--background)), hsl(var(--soft-ivory)));
   }
 
   .bg-hero-pattern {
-    background-color: hsl(var(--background));
+    background: linear-gradient(135deg, 
+      hsl(var(--background)) 0%, 
+      hsl(var(--accent) / 0.03) 50%,
+      hsl(var(--soft-ivory)) 100%);
     background-image: 
-      radial-gradient(circle at 15% 50%, hsl(var(--accent) / 0.05) 0%, transparent 50%),
-      radial-gradient(circle at 85% 30%, hsl(var(--accent) / 0.04) 0%, transparent 50%),
-      radial-gradient(circle at 50% 85%, hsl(var(--primary) / 0.03) 0%, transparent 45%);
+      radial-gradient(circle at 15% 50%, hsl(var(--accent) / 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 85% 30%, hsl(var(--warm-gold) / 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 50% 85%, hsl(var(--primary) / 0.05) 0%, transparent 45%);
   }
 
   .bg-soft-texture {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a574' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--soft-ivory)));
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a574' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* New Gradient Effects */
+  .bg-gradient-accent {
+    background: linear-gradient(135deg, 
+      hsl(var(--accent) / 0.1) 0%, 
+      hsl(var(--warm-gold) / 0.05) 50%,
+      transparent 100%);
+  }
+
+  .bg-gradient-shine {
+    background: linear-gradient(135deg,
+      hsl(var(--card)) 0%,
+      hsl(var(--accent) / 0.03) 25%,
+      hsl(var(--card)) 50%,
+      hsl(var(--warm-gold) / 0.03) 75%,
+      hsl(var(--card)) 100%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--warm-gold)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn-gradient {
+    background: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--warm-gold)));
+    box-shadow: 0 4px 15px hsl(var(--accent) / 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .btn-gradient:hover {
+    box-shadow: 0 6px 20px hsl(var(--accent) / 0.4);
+    transform: translateY(-2px);
+  }
+
+  .border-gradient {
+    border: 2px solid transparent;
+    background: linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
+                linear-gradient(135deg, hsl(var(--accent)), hsl(var(--warm-gold))) border-box;
   }
 }
 
@@ -203,8 +294,27 @@
     opacity: 0;
   }
 
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradientMove 4s ease infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s ease-in-out infinite;
+  }
+
   .font-chinese {
     font-family: 'Noto Serif TC', serif;
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.3),
+                0 0 40px hsl(var(--accent) / 0.2);
+  }
+
+  .glow-accent-hover:hover {
+    box-shadow: 0 0 25px hsl(var(--accent) / 0.4),
+                0 0 50px hsl(var(--accent) / 0.3);
   }
 }
 
@@ -219,27 +329,48 @@
   }
 }
 
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
 }
 
-/* Smooth scrollbar */
+/* Enhanced Smooth scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(var(--background));
+  background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--soft-ivory)));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--accent) / 0.3);
+  background: linear-gradient(135deg, hsl(var(--accent) / 0.4), hsl(var(--warm-gold) / 0.4));
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--accent) / 0.5);
+  background: linear-gradient(135deg, hsl(var(--accent) / 0.6), hsl(var(--warm-gold) / 0.6));
 }
 
 /* Photo background helpers */
@@ -288,6 +419,7 @@
 .gold-line-center {
   width: 64px;
   height: 2px;
-  background: hsl(var(--accent));
+  background: linear-gradient(90deg, hsl(var(--accent)), hsl(var(--warm-gold)));
   margin: 0 auto;
+  box-shadow: 0 2px 8px hsl(var(--accent) / 0.3);
 }
