@@ -65,7 +65,7 @@ const articles = [
     title: "耶穌多說「理」? 還是有「情」人? (3)",
     date: "2018-11-26",
     url: "https://www.tongsir.net/#_blog",
-    fullText: `學習輔導的其中一個片段，是在突破青年村跟 Dr. John Banmen上課的一幕，當時因為自告奮勇，站在同學們當中去示範（順便要讚一下自己，因為要在生命中成長，有時候真的要幾勇）。當時 Dr. John 的第一句就已經令我Hang機,”What is your feeling RIGHT NOW?” （你此時此刻的感受如何？）
+    fullText: `學習輔導的其中一個片段，是在突破青年村跟 Dr. John Banmen上課的一幕，當時因為自告奮勇，站在同學們當中去示範（順便要讚一下自己，因為要在生命中成長，有時候真的要幾勇）。當時 Dr. John 的第一句就已經令我Hang機,"What is your feeling RIGHT NOW?" （你此時此刻的感受如何？）
 
 那時自問自己已經修讀多年輔導課程，也覺得自己已經經歷不少轉變（包括有機會體會了不同老師的Family Reconstruction被修整）。但在當時，我卻突然發現，原來自己對感受還是十分陌生。我忘記了當事我用「頭腦」去「分析」了自己的甚麼感受。然而我內心深知道的是，距離成為一個接納「整全」自己，全然擁抱上主賜與自我「感受」的人，我還是有漫漫長路要走。
 
@@ -91,4 +91,90 @@ export default function Courses() {
             <h1 className="text-4xl md:text-6xl font-display font-bold text-foreground mb-4 font-chinese">
               課程 / 出版 / 文章
             </h1>
-            <p className="text-xl text-muted-foreground">Courses, Publications & Articles",
+            <p className="text-xl text-muted-foreground">
+              Courses, Publications &amp; Articles
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Courses Section */}
+      <section className="section-padding">
+        <div className="container-wide mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl font-display font-bold text-foreground mb-8 font-chinese">
+              課程
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {courses.map((course, i) => (
+                <div
+                  key={i}
+                  className="p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow"
+                >
+                  <course.icon className="w-8 h-8 text-primary mb-4" />
+                  <h3 className="text-lg font-semibold text-foreground mb-2 font-chinese">
+                    {course.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm">{course.desc}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Publications Section */}
+      <PublicationsSection />
+
+      {/* Articles Section */}
+      <section className="section-padding bg-muted/30">
+        <div className="container-wide mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl font-display font-bold text-foreground mb-8 font-chinese">
+              文章
+            </h2>
+            <div className="space-y-6">
+              {articles.map((article) => (
+                <div
+                  key={article.id}
+                  className="p-6 rounded-xl border border-border bg-card"
+                >
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-lg font-semibold text-foreground font-chinese">
+                      {article.title}
+                    </h3>
+                    <span className="text-sm text-muted-foreground ml-4 shrink-0">
+                      {article.date}
+                    </span>
+                  </div>
+                  <p className="text-muted-foreground text-sm leading-relaxed font-chinese whitespace-pre-line line-clamp-4">
+                    {article.fullText}
+                  </p>
+                  <a
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 mt-3 text-primary hover:underline text-sm"
+                  >
+                    閱讀全文 <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+    </div>
+  );
+}
