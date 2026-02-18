@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Heart, Globe, BookOpen, Users, Award, Lightbulb, GraduationCap, ExternalLink } from "lucide-react";
-import felixPhoto from "@/assets/Felix2.jpg";
+import ordinationPhoto from "@/assets/Ordaination.jpg";
 import mslcPhoto1 from "@/assets/MSLC02.jpg";
 import mslcPhoto2 from "@/assets/MSLC03.jpg";
-import ordinationBg from "@/assets/Ordaination.jpg";
 
 const education = [
   {
@@ -160,7 +159,7 @@ export default function About() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl translate-x-3 translate-y-3" />
                 <img
-                  src={felixPhoto}
+                  src={ordinationPhoto}
                   alt="Dr. Felix Tong - 唐思偉博士"
                   className="relative rounded-2xl w-full object-cover shadow-xl border-2 border-accent/20"
                 />
@@ -195,33 +194,6 @@ export default function About() {
               </div>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Ordination Photo Banner */}
-      <section
-        className="section-padding bg-photo-cover bg-photo-overlay-dark min-h-[360px] flex items-center"
-        style={{ backgroundImage: `url(${ordinationBg})` }}
-      >
-        <div className="container-wide mx-auto relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl"
-          >
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4">
-              Calling & Ministry
-            </h2>
-            <div className="gold-line mb-6"></div>
-            <p className="text-xl font-chinese text-muted-foreground mb-8">呼召與服事</p>
-            <p className="text-lg md:text-xl text-foreground/90 leading-relaxed font-chinese">
-              以信仰、輔導與創意教育同行，服事家庭、教會與社群。
-              <br />
-              致力於在生命的不同階段，提供專業的支持與靈性的引導。
-            </p>
-          </motion.div>
         </div>
       </section>
 
