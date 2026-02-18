@@ -13,10 +13,10 @@ const categories = [
         description: "一段聆聽、分享的空間，透過默想、反省與人與神的關係"
       },
       { 
-        name: "唐四塗鴉", 
+        name: "唐四塗鶉", 
         nameEn: "Tong Si Gallery",
         url: "http://tongsigallary.blogspot.com/",
-        description: "一個渴望成長的平凡人，希望用平凡的塗鴉，去觸動每個不平凡的心靈。與你聯繫，彼此交流與分享。"
+        description: "一個渴望成長的平凡人，希望用平凡的塗鶉，去觸動每個不平凡的心靈。與你聯繫，彼此交流與分享。"
       },
       { 
         name: "父母童行", 
@@ -45,11 +45,11 @@ const categories = [
     ],
   },
   {
-    title: "專業組織 Professional Organisations",
+    title: "紐西蘭專業組織 New Zealand Professional Organisations",
     titleEn: "",
     links: [
       { 
-        name: "NZAC - NZ Association of Counsellors", 
+        name: "NZAC - New Zealand Association of Counsellors", 
         nameEn: "",
         url: "https://nzac.org.nz",
         description: ""
@@ -58,6 +58,36 @@ const categories = [
         name: "The International Focusing Institute", 
         nameEn: "",
         url: "https://focusing.org",
+        description: ""
+      },
+    ],
+  },
+  {
+    title: "澳洲專業組織 Australian Professional Organisations",
+    titleEn: "",
+    links: [
+      { 
+        name: "ACA - Australian Counselling Association", 
+        nameEn: "",
+        url: "https://www.theaca.net.au",
+        description: ""
+      },
+    ],
+  },
+  {
+    title: "香港專業組織 Hong Kong Professional Organisations",
+    titleEn: "",
+    links: [
+      { 
+        name: "香港專業輔導協會 HKPCA", 
+        nameEn: "Hong Kong Professional Counselling Association",
+        url: "https://www.hkpca.org.hk",
+        description: ""
+      },
+      { 
+        name: "亞洲專業輔導及心理協會(香港) APCHK", 
+        nameEn: "Asian Professional Counselling & Psychology Association (Hong Kong)",
+        url: "https://www.apchk.org",
         description: ""
       },
     ],
