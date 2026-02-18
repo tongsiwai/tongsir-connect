@@ -10,7 +10,7 @@ export default function Blog() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <section className="section-padding bg-gradient-to-b from-accent/10 to-background">
+      <section className="section-padding bg-hero-pattern">
         <div className="container-wide mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -29,7 +29,7 @@ export default function Blog() {
       </section>
 
       {/* Article List */}
-      <section className="section-padding">
+      <section className="section-padding bg-background bg-pattern-dots">
         <div className="container-narrow mx-auto">
           <div className="space-y-1">
             {blogArticles.map((article, index) => (
