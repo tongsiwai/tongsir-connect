@@ -215,8 +215,14 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Session Formats with Photo Background */}
-      <section className="section-padding bg-photo-cover bg-photo-overlay-left" style={{ backgroundImage: `url(${felixTalkBg})` }}>
+      {/* Session Formats with Photo Background - Changed background position to top */}
+      <section 
+        className="section-padding bg-photo-cover bg-photo-overlay-left" 
+        style={{ 
+          backgroundImage: `url(${felixTalkBg})`,
+          backgroundPosition: 'top'
+        }}
+      >
         <div className="container-wide mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <motion.div
