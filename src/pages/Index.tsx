@@ -12,7 +12,8 @@ export default function Index() {
       {/* Calling & Ministry Section with Photo Background */}
       <section 
         className="section-padding bg-photo-cover bg-photo-overlay-dark min-h-[400px] flex items-center"
-Add Calling & Ministry section with Ordaination.jpg photo background to Index page      >
+        style={{ backgroundImage: `url(${ordainationBg})` }}
+      >
         <div className="container-wide mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
