@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import HeroSection from "@/components/home/HeroSection";
 import ExperienceSection from "@/components/home/ExperienceSection";
 import YoutubeSection from "@/components/home/YoutubeSection";
-import ordainationBg from "@/assets/Ordaination.jpg";
+import churchBg from "@/assets/MSLC02.jpg";
 
 export default function Index() {
   return (
@@ -12,7 +12,7 @@ export default function Index() {
       {/* Calling & Ministry Section with Photo Background */}
       <section 
         className="section-padding bg-photo-cover bg-photo-overlay-dark min-h-[400px] flex items-center"
-        style={{ backgroundImage: `url(${ordainationBg})` }}
+        style={{ backgroundImage: `url(${churchBg})` }}
       >
         <div className="container-wide mx-auto relative z-10">
           <motion.div
