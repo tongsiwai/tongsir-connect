@@ -25,7 +25,7 @@ export default function Courses() {
     <div className="min-h-screen">
 
       {/* Page Header */}
-      <section className="section-padding bg-gradient-to-b from-accent/10 to-background">
+      <section className="section-padding bg-hero-pattern">
         <div className="container-wide mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -44,7 +44,7 @@ export default function Courses() {
       </section>
 
       {/* Courses Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-gradient-warm bg-pattern-subtle-grid">
         <div className="container-wide mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
