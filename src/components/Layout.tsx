@@ -28,12 +28,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   // Check if current path starts with /blog for highlighting
   const isBlogPath = location.pathname.startsWith('/blog');
 
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
         <div className="container-wide mx-auto flex items-center justify-between h-16 px-6">
-          <Link to="/" className="flex items-center gap-2">
+          <Link to="/" onClick={scrollToTop} className="flex items-center gap-2">
             <span className="font-display text-2xl font-bold tracking-tight text-foreground">TongSir</span>
             <span className="font-chinese text-sm text-muted-foreground hidden sm:inline">唐思偉博士</span>
           </Link>
@@ -49,6 +54,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <Link
                   key={item.path}
                   to={item.path}
+                  onClick={scrollToTop}
                   className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                     isActive 
                       ? "bg-accent/10 text-accent" 
@@ -68,7 +74,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <Icon size={18} />
               </a>
             ))}
-            <Link to="/booking" className="ml-3 px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors text-sm font-medium">
+            <Link to="/booking" onClick={scrollToTop} className="ml-3 px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors text-sm font-medium">
               預約 Book Now
             </Link>
           </div>
@@ -99,7 +105,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     <Link
                       key={item.path}
                       to={item.path}
-                      onClick={() => setMobileOpen(false)}
+                      onClick={() => {
+                        setMobileOpen(false);
+                        scrollToTop();
+                      }}
                       className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                         isActive 
                           ? "bg-accent/10 text-accent" 
@@ -139,16 +148,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div>
               <h4 className="font-display text-sm font-semibold uppercase tracking-wider mb-3 opacity-80">About</h4>
               <div className="flex flex-col gap-2">
-                <Link to="/about" className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
+                <Link to="/about" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
                   關於唐博士
                 </Link>
-                <Link to="/services" className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
+                <Link to="/services" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
                   輔導服務
                 </Link>
-                <Link to="/courses" className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
+                <Link to="/courses" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
                   課程/出版
                 </Link>
-                <Link to="/blog" className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
+                <Link to="/blog" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
                   文章
                 </Link>
               </div>
@@ -156,13 +165,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div>
               <h4 className="font-display text-sm font-semibold uppercase tracking-wider mb-3 opacity-80">Get Started</h4>
               <div className="flex flex-col gap-2">
-                <Link to="/booking" className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
+                <Link to="/booking" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
                   預約服務
                 </Link>
-                <Link to="/contact" className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
+                <Link to="/contact" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
                   聯絡交流
                 </Link>
-                <Link to="/supporters" className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
+                <Link to="/supporters" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
                   同行支持者
                 </Link>
               </div>
