@@ -7,7 +7,8 @@ const navItems = [
   { path: "/", label: "主頁", labelEn: "Home" },
   { path: "/about", label: "關於唐博士", labelEn: "About" },
   { path: "/services", label: "輔導服務", labelEn: "Services" },
-  { path: "/courses", label: "課程/文章", labelEn: "Courses" },
+  { path: "/courses", label: "課程/出版", labelEn: "Courses" },
+  { path: "/blog", label: "文章 Blog", labelEn: "Blog" },
   { path: "/media", label: "影音分享", labelEn: "Media" },
   { path: "/booking", label: "預約服務", labelEn: "Booking" },
   { path: "/contact", label: "聯絡交流", labelEn: "Contact" },
@@ -24,6 +25,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
+  // Check if current path starts with /blog for highlighting
+  const isBlogPath = location.pathname.startsWith('/blog');
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       {/* Header */}
@@ -36,19 +40,25 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-                  location.pathname === item.path 
-                    ? "bg-accent/10 text-accent" 
-                    : "text-muted-foreground hover:text-foreground hover:bg-accent/5"
-                }`}
-              >
-                <span className="font-chinese">{item.label}</span>
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = item.path === '/blog' 
+                ? isBlogPath 
+                : location.pathname === item.path;
+              
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                    isActive 
+                      ? "bg-accent/10 text-accent" 
+                      : "text-muted-foreground hover:text-foreground hover:bg-accent/5"
+                  }`}
+                >
+                  <span className="font-chinese">{item.label}</span>
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="hidden lg:flex items-center gap-3">
@@ -80,20 +90,26 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               className="lg:hidden overflow-hidden border-t border-border bg-background"
             >
               <nav className="flex flex-col px-6 py-4 gap-2">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    onClick={() => setMobileOpen(false)}
-                    className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-                      location.pathname === item.path 
-                        ? "bg-accent/10 text-accent" 
-                        : "text-foreground/80 hover:text-foreground hover:bg-accent/5"
-                    }`}
-                  >
-                    <span className="font-chinese">{item.label}</span>
-                  </Link>
-                ))}
+                {navItems.map((item) => {
+                  const isActive = item.path === '/blog' 
+                    ? isBlogPath 
+                    : location.pathname === item.path;
+                  
+                  return (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      onClick={() => setMobileOpen(false)}
+                      className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                        isActive 
+                          ? "bg-accent/10 text-accent" 
+                          : "text-foreground/80 hover:text-foreground hover:bg-accent/5"
+                      }`}
+                    >
+                      <span className="font-chinese">{item.label}</span>
+                    </Link>
+                  );
+                })}
                 <div className="flex items-center gap-4 pt-3 border-t border-border mt-2">
                   {socialLinks.map(({ icon: Icon, href, label }) => (
                     <a key={label} href={href} target="_blank" rel="noopener noreferrer"
@@ -130,7 +146,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   輔導服務
                 </Link>
                 <Link to="/courses" className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
-                  課程/文章
+                  課程/出版
+                </Link>
+                <Link to="/blog" className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
+                  文章 Blog
                 </Link>
               </div>
             </div>
