@@ -15,9 +15,9 @@ const navItems = [
 ];
 
 const socialLinks = [
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-  { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
+  { icon: Instagram, href: "https://www.instagram.com/tongsiwai/", label: "Instagram" },
+  { icon: Facebook, href: "https://www.facebook.com/tongsir/", label: "Facebook" },
+  { icon: Youtube, href: "https://www.youtube.com/@SlowFlowNewLifeChannel", label: "YouTube" },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {

@@ -15,7 +15,7 @@ export default function Contact() {
     <section className="section-padding">
       <div className="container-narrow mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-          <h1 className="heading-section font-chinese">聯絡交流</h1>
+          <h1 className="heading-section font-chinese">與我聯絡</h1>
           <p className="heading-sub">Get in Touch</p>
           <div className="gold-line mt-4" />
         </motion.div>
@@ -84,15 +84,15 @@ export default function Contact() {
                 <Mail className="text-accent" size={20} />
                 <h3 className="font-display font-semibold text-foreground">Email</h3>
               </div>
-              <p className="text-sm text-muted-foreground">contact@tongsir.com</p>
+              <p className="text-sm text-muted-foreground">tongsir@gmail.com</p>
             </div>
             <div className="card-warm">
               <h3 className="font-display font-semibold text-foreground mb-3">Social Media</h3>
               <div className="flex gap-4">
                 {[
-                  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-                  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-                  { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
+                  { icon: Instagram, href: "https://www.instagram.com/tongsiwai/", label: "Instagram" },
+                  { icon: Facebook, href: "https://www.facebook.com/tongsir/", label: "Facebook" },
+                  { icon: Youtube, href: "https://www.youtube.com/@SlowFlowNewLifeChannel", label: "YouTube" },
                 ].map(({ icon: Icon, href, label }) => (
                   <a key={label} href={href} target="_blank" rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-accent/15 flex items-center justify-center text-accent hover:bg-accent hover:text-accent-foreground transition-colors">
