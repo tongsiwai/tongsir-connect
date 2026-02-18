@@ -8,7 +8,7 @@ const navItems = [
   { path: "/about", label: "關於唐博士", labelEn: "About" },
   { path: "/services", label: "輔導服務", labelEn: "Services" },
   { path: "/courses", label: "課程/出版", labelEn: "Courses" },
-  { path: "/blog", label: "文章 Blog", labelEn: "Blog" },
+  { path: "/blog", label: "文章", labelEn: "Blog" },
   { path: "/media", label: "影音分享", labelEn: "Media" },
   { path: "/booking", label: "預約服務", labelEn: "Booking" },
   { path: "/contact", label: "聯絡交流", labelEn: "Contact" },
@@ -149,7 +149,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   課程/出版
                 </Link>
                 <Link to="/blog" className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
-                  文章 Blog
+                  文章
                 </Link>
               </div>
             </div>
