@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
   { path: "/", label: "主頁", labelEn: "Home" },
-  { path: "/about", label: "關於唐博士", labelEn: "About" },
+  { path: "/about", label: "關於TongSir", labelEn: "About" },
   { path: "/services", label: "輔導服務", labelEn: "Services" },
   { path: "/courses", label: "課程/出版", labelEn: "Courses" },
   { path: "/blog", label: "文章", labelEn: "Blog" },
@@ -158,7 +158,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <h4 className="font-display text-sm font-semibold uppercase tracking-wider mb-3 opacity-80">About</h4>
               <div className="flex flex-col gap-2">
                 <Link to="/about" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
-                  關於唐博士
+                  關於TongSir
                 </Link>
                 <Link to="/services" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
                   輔導服務
