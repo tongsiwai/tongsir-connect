@@ -19,7 +19,7 @@ const categories = [
   {
     title: "課程平台 Course Platforms",
     links: [
-      { name: "ProLearning Asia", url: "https://courses.prolearning.asia" },
+      { name: "ProLearning Asia", url: "https://www.prolearning.asia" },
     ],
   },
 ];
