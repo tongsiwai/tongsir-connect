@@ -241,3 +241,53 @@
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--accent) / 0.5);
 }
+
+/* Photo background helpers */
+.bg-photo-cover {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-photo-overlay-dark {
+  position: relative;
+  isolation: isolate;
+}
+
+.bg-photo-overlay-dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    hsl(var(--background) / 0.88) 0%,
+    hsl(var(--background) / 0.72) 50%,
+    hsl(var(--background) / 0.45) 100%
+  );
+  z-index: -1;
+}
+
+.bg-photo-overlay-left {
+  position: relative;
+  isolation: isolate;
+}
+
+.bg-photo-overlay-left::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    hsl(var(--background) / 0.92) 0%,
+    hsl(var(--background) / 0.78) 45%,
+    hsl(var(--background) / 0.42) 100%
+  );
+  z-index: -1;
+}
+
+.gold-line-center {
+  width: 64px;
+  height: 2px;
+  background: hsl(var(--accent));
+  margin: 0 auto;
+}
