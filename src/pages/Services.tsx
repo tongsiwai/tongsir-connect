@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Heart, Users, Compass, Brain, Baby, GraduationCap, Video, MapPin } from "lucide-react";
+import { Heart, Users, Compass, Brain, Baby, GraduationCap, Video, MapPin, Church } from "lucide-react";
 import felixPhoto from "@/assets/Felix2.jpg";
+import felixTalkBg from "@/assets/Felix-Talk.jpg";
 
 const services = [
   {
@@ -111,191 +112,191 @@ export default function Services() {
   return (
     <div className="min-h-screen">
       {/* Hero Section with portrait */}
-      <section className="section-padding bg-hero-pattern">
+      <section className="section-padding bg-hero-pattern overflow-hidden pt-32 lg:pt-40">
         <div className="container-wide mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Text */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center lg:text-left"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
             >
               <h1 className="text-4xl md:text-6xl font-display font-bold text-foreground mb-4">
                 Counseling Services
               </h1>
-              <p className="text-2xl font-chinese text-muted-foreground mb-4">輔導服務</p>
-              <div className="gold-line mt-2 mb-6 mx-auto lg:mx-0" />
-              <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+              <p className="text-2xl font-chinese text-accent mb-6">輔導服務</p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl">
                 Professional counseling, therapy, and spiritual direction services tailored to your unique needs and journey.
+                <br />
+                <span className="font-chinese block mt-2">為您的獨特需要和旅程量身定制的專業輔導、治療和靈修指導服務。</span>
               </p>
-              <p className="font-chinese text-base text-muted-foreground mt-4 max-w-xl leading-relaxed">
-                為您的獨特需要和旅程量身定制的專業輔導、治療和靈修指導服務。
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
-                <span className="px-3 py-1.5 bg-accent/10 text-accent rounded-full text-sm">廣東話 · 普通話 · English</span>
-                <span className="px-3 py-1.5 bg-accent/10 text-accent rounded-full text-sm">Online & In-Person</span>
-                <span className="px-3 py-1.5 bg-accent/10 text-accent rounded-full text-sm">Auckland, NZ</span>
+              
+              <div className="flex flex-wrap gap-3 mb-8">
+                <span className="px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium border border-accent/20">
+                  廣東話 · 普通話 · English
+                </span>
+                <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20">
+                  Online & In-Person
+                </span>
+                <span className="px-4 py-2 bg-muted text-muted-foreground rounded-full text-sm font-medium">
+                  Auckland, NZ
+                </span>
               </div>
             </motion.div>
+
             {/* Portrait */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="flex justify-center"
+              transition={{ duration: 0.8 }}
+              className="relative"
             >
-              <div className="relative w-72 md:w-80">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl translate-x-4 translate-y-4" />
-                <div className="absolute -inset-4 bg-gradient-to-br from-accent/10 via-transparent to-accent/5 rounded-3xl blur-2xl" />
-                <img
-                  src={felixPhoto}
-                  alt="Dr. Felix Tong - Counseling Services"
-                  className="relative rounded-2xl w-full object-cover shadow-2xl border-2 border-accent/20"
+              <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] md:aspect-square lg:aspect-[4/5] max-w-md mx-auto">
+                <img 
+                  src={felixPhoto} 
+                  alt="Dr. Felix Tong - Counseling Services" 
+                  className="w-full h-full object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               </div>
+              {/* Decorative elements */}
+              <div className="absolute -top-6 -right-6 w-32 h-32 bg-accent/20 rounded-full blur-3xl"></div>
+              <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-primary/10 rounded-full blur-3xl"></div>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="section-padding bg-background bg-pattern-dots">
+      <section className="section-padding bg-background relative">
         <div className="container-wide mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-3">Services Offered</h2>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4">
+              Services Offered
+            </h2>
+            <div className="gold-line-center mb-4"></div>
             <p className="text-xl font-chinese text-muted-foreground">提供的服務</p>
-            <div className="gold-line-center mt-4" />
-          </motion.div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`p-8 rounded-2xl border border-border bg-gradient-to-br ${service.color} hover:shadow-xl transition-all duration-300 group`}
               >
-                <div className="relative bg-card p-8 rounded-2xl border border-accent/10 hover:border-accent/30 transition-all hover:shadow-xl h-full">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl`} />
-                  <div className="relative">
-                    <div className="flex items-start gap-4 mb-6">
-                      <div className="p-4 bg-accent/10 rounded-xl group-hover:bg-accent/20 transition-colors">
-                        <service.icon className="w-8 h-8 text-accent" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-2xl font-semibold text-foreground mb-2">{service.title}</h3>
-                        <p className="font-chinese text-lg text-muted-foreground">{service.titleZh}</p>
-                      </div>
-                    </div>
-                    <p className="text-base text-muted-foreground mb-4 leading-relaxed">{service.description}</p>
-                    <p className="font-chinese text-sm text-muted-foreground mb-6 leading-relaxed">{service.descriptionZh}</p>
-                    <div className="space-y-2">
-                      {service.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-start gap-2">
-                          <span className="text-accent mt-1">•</span>
-                          <span className="text-sm text-muted-foreground">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                <service.icon className="w-12 h-12 text-accent mb-6 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-xl font-bold text-foreground mb-1">
+                  {service.title}
+                </h3>
+                <p className="text-lg font-chinese text-foreground mb-4">
+                  {service.titleZh}
+                </p>
+                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                  {service.description}
+                </p>
+                <p className="text-muted-foreground font-chinese text-sm mb-6 leading-relaxed">
+                  {service.descriptionZh}
+                </p>
+                <ul className="space-y-2">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start text-xs text-muted-foreground">
+                      <span className="text-accent mr-2">•</span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Session Formats */}
-      <section className="section-padding bg-gradient-warm bg-soft-texture">
-        <div className="container-wide mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">Session Formats</h2>
-            <p className="text-xl font-chinese text-muted-foreground">輔導形式</p>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {sessionFormats.map((format, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-card p-8 rounded-xl border border-accent/20 hover:shadow-lg transition-all"
-              >
-                <div className="flex flex-col items-center text-center">
-                  <div className="p-4 bg-accent/10 rounded-full mb-4">
-                    <format.icon className="w-10 h-10 text-accent" />
+      {/* Session Formats with Photo Background */}
+      <section className="section-padding bg-photo-cover bg-photo-overlay-left" style={{ backgroundImage: `url(${felixTalkBg})` }}>
+        <div className="container-wide mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4">
+                Talks & Workshops
+              </h2>
+              <div className="gold-line mb-6"></div>
+              <p className="text-xl font-chinese text-muted-foreground mb-8">講座、培訓及工作坊</p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-12 max-w-xl">
+                Dr. Felix Tong is available for speaking engagements, workshops, and seminars for churches, schools, organizations, and parent groups.
+                <br /><br />
+                <span className="font-chinese">提供專題講座、工作坊及培訓課程，範疇涵蓋婚姻家庭、親子教養、情緒教練、青少年成長、靈修指導及生命塑造等。</span>
+              </p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {sessionFormats.map((format, index) => (
+                  <div key={index} className="p-6 rounded-xl bg-background/60 backdrop-blur-md border border-white/20 shadow-lg">
+                    <format.icon className="w-8 h-8 text-accent mb-4" />
+                    <h3 className="text-lg font-bold text-foreground mb-1">
+                      {format.title}
+                    </h3>
+                    <p className="text-base font-chinese text-foreground mb-2">
+                      {format.titleZh}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {format.description}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">{format.title}</h3>
-                  <p className="font-chinese text-base text-muted-foreground mb-4">{format.titleZh}</p>
-                  <p className="text-sm text-muted-foreground">{format.description}</p>
-                  <p className="font-chinese text-xs text-muted-foreground mt-2">{format.descriptionZh}</p>
-                </div>
-              </motion.div>
-            ))}
+                ))}
+              </div>
+            </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Languages Offered */}
-      <section className="section-padding bg-background bg-pattern-subtle-grid">
-        <div className="container-wide mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto bg-gradient-to-r from-accent/10 to-accent/5 p-8 rounded-2xl border border-accent/20"
-          >
-            <h3 className="text-2xl font-semibold text-foreground mb-4 text-center">Languages Offered 服務語言</h3>
-            <div className="flex flex-wrap justify-center gap-4 mt-6">
-              <span className="px-6 py-3 bg-card rounded-lg border border-accent/30 text-foreground font-medium">🇭🇰 廣東話 Cantonese</span>
-              <span className="px-6 py-3 bg-card rounded-lg border border-accent/30 text-foreground font-medium">🇨🇳 普通話 Mandarin</span>
-              <span className="px-6 py-3 bg-card rounded-lg border border-accent/30 text-foreground font-medium">🇬🇧 English</span>
-            </div>
-          </motion.div>
         </div>
       </section>
 
       {/* Professional Memberships */}
       <section className="section-padding bg-muted/30">
         <div className="container-wide mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">Professional Registrations</h2>
-            <p className="text-xl font-chinese text-muted-foreground">專業註冊</p>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <h2 className="text-3xl font-display font-bold text-foreground mb-4">
+              Professional Registrations
+            </h2>
+            <div className="gold-line-center mb-4"></div>
+            <p className="text-xl font-chinese text-muted-foreground italic">專業註冊</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { org: "Hong Kong Professional Counselling Association", orgZh: "香港專業輔導協會", status: "Associate Fellow 副院士" },
-              { org: "Asian Professional Counselling Association (HK)", orgZh: "亞洲專業輔導協會(香港)", status: "Registered Clinical Supervisor & Counselor" },
-              { org: "Australian Counseling Association", orgZh: "澳洲輔導協會", status: "Registered Counselor (MACA)" },
+              { 
+                org: "Hong Kong Professional Counselling Association", 
+                orgZh: "香港專業輔導協會",
+                status: "Associate Fellow 副院士" 
+              },
+              { 
+                org: "Asian Professional Counselling Association (HK)", 
+                orgZh: "亞洲專業輔導協會(香港)",
+                status: "Registered Clinical Supervisor & Counselor" 
+              },
+              { 
+                org: "Australian Counseling Association", 
+                orgZh: "澳洲輔導協會",
+                status: "Registered Counselor (MACA)" 
+              },
             ].map((reg, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-card p-6 rounded-lg border border-accent/20 hover:shadow-lg transition-shadow"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="p-8 rounded-xl bg-card border border-border shadow-sm text-center"
               >
-                <h4 className="font-semibold text-foreground mb-2">{reg.org}</h4>
-                <p className="font-chinese text-sm text-muted-foreground mb-3">{reg.orgZh}</p>
-                <p className="text-sm text-accent font-medium">{reg.status}</p>
+                <h4 className="text-lg font-bold text-foreground mb-2">{reg.org}</h4>
+                <p className="text-base font-chinese text-accent mb-4">{reg.orgZh}</p>
+                <p className="text-sm text-muted-foreground">{reg.status}</p>
               </motion.div>
             ))}
           </div>
@@ -303,20 +304,37 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-gradient-radial">
-        <div className="container-wide mx-auto">
+      <section className="section-padding bg-primary text-primary-foreground relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full bg-pattern-dots opacity-10"></div>
+        <div className="container-narrow mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto bg-gradient-to-br from-accent/20 to-accent/10 p-12 rounded-2xl border border-accent/30 text-center"
+            transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">Ready to Begin Your Journey?</h2>
-            <p className="text-xl font-chinese text-muted-foreground mb-8">準備好開始您的旅程了嗎？</p>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">Book a session today to start your path toward healing, growth, and transformation.</p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/booking" className="px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors font-semibold text-lg">Book a Session 預約輔導</Link>
-              <Link to="/contact" className="px-8 py-4 bg-card border-2 border-accent text-foreground rounded-lg hover:bg-accent/10 transition-colors font-semibold text-lg">Contact Me 聯絡我</Link>
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
+              Ready to Begin Your Journey?
+            </h2>
+            <p className="text-2xl font-chinese mb-8 text-primary-foreground/90">準備好開始您的旅程了嗎？</p>
+            <p className="text-lg mb-12 opacity-90 max-w-2xl mx-auto leading-relaxed">
+              Book a session today to start your path toward healing, growth, and transformation.
+              <br />
+              <span className="font-chinese">今天就預約，踏上您的癒合、成長與轉化之路。</span>
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link 
+                to="/booking" 
+                className="px-8 py-4 bg-accent text-white rounded-full font-semibold hover:bg-accent/90 transition-all shadow-xl hover:shadow-2xl"
+              >
+                Book a Session 預約輔導
+              </Link>
+              <Link 
+                to="/contact" 
+                className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white rounded-full font-semibold hover:bg-white/20 transition-all"
+              >
+                Contact Me 聯絡我
+              </Link>
             </div>
           </motion.div>
         </div>
