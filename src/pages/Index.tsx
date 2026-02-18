@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import HeroSection from "@/components/home/HeroSection";
 import ExperienceSection from "@/components/home/ExperienceSection";
 import YoutubeSection from "@/components/home/YoutubeSection";
-import ordainationBg from "@/assets/MSLC02.jpg";
+import ordainationBg from "@/assets/Ordaination.jpg";
 
 export default function Index() {
   return (
