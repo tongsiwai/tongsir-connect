@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Heart, Globe, BookOpen, Users, Award, Lightbulb, GraduationCap } from "lucide-react";
+import { Heart, Globe, BookOpen, Users, Award, Lightbulb, GraduationCap, FileText, ArrowRight, ExternalLink } from "lucide-react";
 import felixPhoto from "@/assets/Felix2.jpg";
 import mslcPhoto1 from "@/assets/MSLC02.jpg";
 import mslcPhoto2 from "@/assets/MSLC03.jpg";
@@ -57,6 +57,104 @@ const education = [
   },
 ];
 
+const credentials = [
+  {
+    title: "Certified Focusing Trainer / Focusing-Oriented Therapist",
+    titleZh: "認證聚焦導師 & 聚焦取向治療師",
+    org: "The Focusing Institute, USA",
+    badge: "International Certification",
+    link: "https://focusing.org",
+  },
+  {
+    title: "Associate Fellow (副院士)",
+    titleZh: "副院士",
+    org: "Hong Kong Professional Counselling Association",
+    badge: "HKPCA",
+    link: null,
+  },
+  {
+    title: "Registered Clinical Supervisor & Counselor",
+    titleZh: "註冊臨床督導",
+    org: "Asian Professional Counselling Association (HK)",
+    badge: "APCA",
+    link: null,
+  },
+  {
+    title: "Registered Counselor Level 4",
+    titleZh: "合格註冊輔導員",
+    org: "Australian Counselling Association (ACA)",
+    badge: "ACA Level 4",
+    link: null,
+  },
+  {
+    title: "Certified Bringing Baby Home Educator",
+    titleZh: "認證BBH教育導師",
+    org: "The Gottman Institute, USA",
+    badge: "Gottman Method",
+    link: null,
+  },
+  {
+    title: "Tuning In To Kids / Teens Certified Facilitator",
+    titleZh: "兒童/青少年情緒教練認證導師",
+    org: "Mindful Centre, University of Melbourne",
+    badge: "Mindfulness-Based",
+    link: null,
+  },
+  {
+    title: "6A Character Education Instructor",
+    titleZh: "6A品格教育認可導師",
+    org: "6A Character Education",
+    badge: "Character Education",
+    link: null,
+  },
+  {
+    title: "NLP Practitioner",
+    titleZh: "NLP執行師",
+    org: "American Board of NLP",
+    badge: "NLP",
+    link: null,
+  },
+  {
+    title: "PREPARE/ENRICH Certified Counselor",
+    titleZh: "PREPARE/ENRICH認可輔導員",
+    org: "PREPARE/ENRICH",
+    badge: "Pre-Marital / Marriage",
+    link: null,
+  },
+  {
+    title: "NZAC Member",
+    titleZh: "紐西蘭輔導協會會員",
+    org: "New Zealand Association of Counsellors",
+    badge: "NZAC",
+    link: "https://nzac.org.nz",
+  },
+  {
+    title: "NZCCA Member",
+    titleZh: "紐西蘭基督教輔導協會會員",
+    org: "New Zealand Christian Counselling Association",
+    badge: "NZCCA",
+    link: "https://nzcca.org.nz",
+  },
+];
+
+const blogPosts = [
+  {
+    title: "靈修與心理輔導的整合",
+    date: "2024-12-15",
+    excerpt: "探索靈性指導與心理輔導如何在當代生活中互相補充...",
+  },
+  {
+    title: "Focusing-Oriented Therapy in Practice",
+    date: "2024-11-20",
+    excerpt: "How experiential focusing can deepen therapeutic encounters and personal growth...",
+  },
+  {
+    title: "跨文化牧養的挑戰與祝福",
+    date: "2024-10-05",
+    excerpt: "在紐西蘭多元文化環境中牧養的反思與學習...",
+  },
+];
+
 export default function About() {
   return (
     <div className="min-h-screen">
@@ -105,7 +203,7 @@ export default function About() {
                 <p className="text-lg leading-relaxed text-foreground mb-6 font-chinese">
                   <span className="font-semibold text-accent">唐思偉博士 (Dr. Felix Tong)</span> 乃<strong>紐西蘭信義會蒙恩堂牧師</strong>，負責華人事工及開展，並為<strong>奧克蘭理工大學校牧</strong>，亦是<strong>漢語網絡神學院家庭事工系副系主任</strong>，及<strong>Design For Change Hong Kong 顧問</strong>。
                 </p>
-                
+
                 <p className="text-base leading-relaxed text-muted-foreground mb-6">
                   Dr. Felix Tong serves as <strong>Pastor</strong> at Mountainside Lutheran Church in New Zealand, leading Chinese ministry development and outreach. He is also the University Chaplain at Auckland University of Technology, <strong>Associate Dean of Family Ministry at Chinese Christian Online Seminary of Theology (COST)</strong>, and a consultant for Design For Change Hong Kong.
                 </p>
@@ -332,7 +430,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Professional Credentials Highlight */}
+      {/* Credentials & Recognition Section */}
       <section className="section-padding">
         <div className="container-wide mx-auto">
           <motion.div
@@ -342,66 +440,92 @@ export default function About() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-              Professional Credentials
+              Credentials & Recognition
             </h2>
-            <p className="text-xl font-chinese text-muted-foreground">專業認證</p>
+            <p className="text-xl font-chinese text-muted-foreground">資歷及認可</p>
+            <div className="gold-line-center mt-6" />
           </motion.div>
 
           <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[
-                {
-                  title: "Certified Focusing Trainer / Focusing-Oriented Therapist",
-                  org: "The Focusing Institute, USA",
-                  badge: "International Certification",
-                },
-                {
-                  title: "Associate Fellow (副院士)",
-                  org: "Hong Kong Professional Counselling Association",
-                  badge: "HKPCA",
-                },
-                {
-                  title: "Registered Clinical Supervisor & Counselor",
-                  org: "Asian Professional Counselling Association (HK)",
-                  badge: "APCA",
-                },
-                {
-                  title: "Registered Counselor Level 4",
-                  org: "Australian Counselling Association",
-                  badge: "ACA Level 4",
-                },
-                {
-                  title: "Certified Bringing Baby Home Educator",
-                  org: "The Gottman Institute, USA",
-                  badge: "Gottman Method",
-                },
-                {
-                  title: "Tuning In To Kids/Teens Certified Facilitator",
-                  org: "Mindful Centre, University of Melbourne",
-                  badge: "Mindfulness-Based",
-                },
-              ].map((cred, index) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
+              {credentials.map((cred, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
-                  className="bg-card p-6 rounded-lg border-l-4 border-accent hover:shadow-lg transition-shadow"
+                  className="bg-card p-5 rounded-lg border-l-4 border-accent hover:shadow-lg transition-shadow"
                 >
-                  <div className="flex items-start justify-between mb-3">
-                    <h3 className="font-semibold text-foreground text-base leading-tight flex-1">{cred.title}</h3>
-                    <span className="px-2 py-1 bg-accent/20 text-accent text-xs rounded-full ml-2">{cred.badge}</span>
+                  <div className="flex items-start justify-between mb-2">
+                    <h3 className="font-semibold text-foreground text-sm leading-tight flex-1">{cred.title}</h3>
+                    <span className="px-2 py-1 bg-accent/20 text-accent text-xs rounded-full ml-2 whitespace-nowrap">{cred.badge}</span>
                   </div>
-                  <p className="text-sm text-muted-foreground">{cred.org}</p>
+                  <p className="font-chinese text-xs text-muted-foreground mb-1">{cred.titleZh}</p>
+                  <p className="text-xs text-muted-foreground">{cred.org}</p>
+                  {cred.link && (
+                    <a
+                      href={cred.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs text-accent hover:underline mt-2"
+                    >
+                      Visit <ExternalLink size={10} />
+                    </a>
+                  )}
                 </motion.div>
               ))}
+            </div>
+
+            {/* Honors & Awards */}
+            <h3 className="text-2xl font-display font-semibold mb-8 text-center">
+              Honors & Awards <span className="font-chinese text-muted-foreground">榮譽及獎項</span>
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="bg-gradient-to-r from-accent/10 to-accent/5 p-8 rounded-xl border border-accent/20"
+              >
+                <div className="flex items-start gap-4">
+                  <Award className="w-12 h-12 text-accent flex-shrink-0" />
+                  <div>
+                    <p className="text-accent font-semibold mb-2">2008 • 第八屆</p>
+                    <h3 className="text-xl font-bold text-foreground mb-2">Hong Kong Outstanding Teacher</h3>
+                    <p className="font-chinese text-base text-muted-foreground mb-3">香港傑出教師</p>
+                    <p className="text-sm text-muted-foreground">
+                      Awarded by Hong Kong Outstanding Teachers Association
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="bg-gradient-to-r from-accent/10 to-accent/5 p-8 rounded-xl border border-accent/20"
+              >
+                <div className="flex items-start gap-4">
+                  <Award className="w-12 h-12 text-accent flex-shrink-0" />
+                  <div>
+                    <p className="text-accent font-semibold mb-2">2009 • 第六屆</p>
+                    <h3 className="text-xl font-bold text-foreground mb-2">Outstanding Teacher Award (Caring)</h3>
+                    <p className="font-chinese text-base text-muted-foreground mb-3">香港優秀教師獎(關愛組)</p>
+                    <p className="text-sm text-muted-foreground">
+                      Awarded by Hong Kong Federation of Education Workers in recognition of outstanding performance in counseling students and families
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Recognition Section */}
+      {/* Recent Articles Section */}
       <section className="section-padding bg-muted/30">
         <div className="container-wide mx-auto">
           <motion.div
@@ -411,50 +535,45 @@ export default function About() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-              Recognition & Awards
+              <span className="font-chinese">其他文章</span>
             </h2>
-            <p className="text-xl font-chinese text-muted-foreground">榮譽及獎項</p>
+            <p className="text-xl text-muted-foreground">Recent writings and reflections</p>
+            <div className="gold-line-center mt-6" />
           </motion.div>
 
-          <div className="max-w-3xl mx-auto space-y-6">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-r from-accent/10 to-accent/5 p-8 rounded-xl border border-accent/20"
-            >
-              <div className="flex items-start gap-4">
-                <Award className="w-12 h-12 text-accent flex-shrink-0" />
-                <div>
-                  <p className="text-accent font-semibold mb-2">2008 • 第八屆</p>
-                  <h3 className="text-2xl font-bold text-foreground mb-2">Hong Kong Outstanding Teacher</h3>
-                  <p className="font-chinese text-lg text-muted-foreground mb-3">香港傑出教師</p>
-                  <p className="text-sm text-muted-foreground">
-                    Awarded by Hong Kong Outstanding Teachers Association
-                  </p>
-                </div>
-              </div>
-            </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {blogPosts.map((post, i) => (
+              <motion.article
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="bg-card rounded-xl p-6 border border-accent/10 hover:border-accent/30 hover:shadow-lg transition-all group cursor-pointer"
+              >
+                <time className="text-xs text-accent font-semibold uppercase tracking-wider">
+                  {post.date}
+                </time>
+                <h3 className="text-base font-display font-semibold text-foreground mt-2 group-hover:text-accent transition-colors">
+                  {post.title}
+                </h3>
+                <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                  {post.excerpt}
+                </p>
+                <span className="inline-flex items-center gap-1 text-sm text-accent mt-4 font-medium group-hover:gap-2 transition-all">
+                  Read more <ArrowRight size={14} />
+                </span>
+              </motion.article>
+            ))}
+          </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="bg-gradient-to-r from-accent/10 to-accent/5 p-8 rounded-xl border border-accent/20"
+          <div className="text-center mt-10">
+            <Link
+              to="/courses"
+              className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-accent transition-colors"
             >
-              <div className="flex items-start gap-4">
-                <Award className="w-12 h-12 text-accent flex-shrink-0" />
-                <div>
-                  <p className="text-accent font-semibold mb-2">2009 • 第六届</p>
-                  <h3 className="text-2xl font-bold text-foreground mb-2">Outstanding Teacher Award (Caring)</h3>
-                  <p className="font-chinese text-lg text-muted-foreground mb-3">香港優秀教師獎(關愛組)</p>
-                  <p className="text-sm text-muted-foreground">
-                    Awarded by Hong Kong Federation of Education Workers in recognition of outstanding performance in counseling students and families
-                  </p>
-                </div>
-              </div>
-            </motion.div>
+              View all articles <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
       </section>
@@ -472,7 +591,7 @@ export default function About() {
               A Journey of Service
             </h2>
             <p className="text-xl font-chinese text-muted-foreground mb-12">服務的旅程</p>
-            
+
             <div className="prose prose-lg max-w-none text-muted-foreground">
               <p className="text-lg leading-relaxed mb-6 font-chinese">
                 唐博士擁有十多年輔導經驗，專注於婚姻家庭治療、靈修指導及聚焦取向心理治療。他致力於跨文化事工，在奧克蘭服事華人社群，同時亦為大學生提供牧養關懷。
