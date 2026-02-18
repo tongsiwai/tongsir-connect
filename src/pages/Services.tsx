@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Heart, Users, Compass, Brain, Baby, GraduationCap, Video, MapPin } from "lucide-react";
+import felixPhoto from "@/assets/Felix2.jpg";
 
 const services = [
   {
@@ -109,32 +110,67 @@ const sessionFormats = [
 export default function Services() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
+      {/* Hero Section with portrait */}
       <section className="section-padding bg-hero-pattern">
         <div className="container-wide mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-12"
-          >
-            <h1 className="text-4xl md:text-6xl font-display font-bold text-foreground mb-4">
-              Counseling Services
-            </h1>
-            <p className="text-2xl font-chinese text-muted-foreground">輔導服務</p>
-            <div className="gold-line-center mt-6" />
-            <p className="text-lg text-muted-foreground mt-8 max-w-3xl mx-auto">
-              Professional counseling, therapy, and spiritual direction services tailored to your unique needs and journey.
-            </p>
-            <p className="font-chinese text-base text-muted-foreground mt-4 max-w-3xl mx-auto">
-              為您的獨特需要和旅程量身定制的專業輔導、治療和靈修指導服務。
-            </p>
-          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Text */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center lg:text-left"
+            >
+              <h1 className="text-4xl md:text-6xl font-display font-bold text-foreground mb-4">
+                Counseling Services
+              </h1>
+              <p className="text-2xl font-chinese text-muted-foreground mb-4">輔導服務</p>
+              <div className="gold-line mt-2 mb-6 mx-auto lg:mx-0" />
+              <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+                Professional counseling, therapy, and spiritual direction services tailored to your unique needs and journey.
+              </p>
+              <p className="font-chinese text-base text-muted-foreground mt-4 max-w-xl leading-relaxed">
+                為您的獨特需要和旅程量身定制的專業輔導、治療和靈修指導服務。
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
+                <span className="px-3 py-1.5 bg-accent/10 text-accent rounded-full text-sm">廣東話 · 普通話 · English</span>
+                <span className="px-3 py-1.5 bg-accent/10 text-accent rounded-full text-sm">Online & In-Person</span>
+                <span className="px-3 py-1.5 bg-accent/10 text-accent rounded-full text-sm">Auckland, NZ</span>
+              </div>
+            </motion.div>
+            {/* Portrait */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="flex justify-center"
+            >
+              <div className="relative w-72 md:w-80">
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl translate-x-4 translate-y-4" />
+                <div className="absolute -inset-4 bg-gradient-to-br from-accent/10 via-transparent to-accent/5 rounded-3xl blur-2xl" />
+                <img
+                  src={felixPhoto}
+                  alt="Dr. Felix Tong - Counseling Services"
+                  className="relative rounded-2xl w-full object-cover shadow-2xl border-2 border-accent/20"
+                />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Services Grid */}
       <section className="section-padding bg-background bg-pattern-dots">
         <div className="container-wide mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-3">Services Offered</h2>
+            <p className="text-xl font-chinese text-muted-foreground">提供的服務</p>
+            <div className="gold-line-center mt-4" />
+          </motion.div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {services.map((service, index) => (
               <motion.div
@@ -147,9 +183,7 @@ export default function Services() {
               >
                 <div className="relative bg-card p-8 rounded-2xl border border-accent/10 hover:border-accent/30 transition-all hover:shadow-xl h-full">
                   <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl`} />
-                  
                   <div className="relative">
-                    {/* Icon & Title */}
                     <div className="flex items-start gap-4 mb-6">
                       <div className="p-4 bg-accent/10 rounded-xl group-hover:bg-accent/20 transition-colors">
                         <service.icon className="w-8 h-8 text-accent" />
@@ -159,12 +193,8 @@ export default function Services() {
                         <p className="font-chinese text-lg text-muted-foreground">{service.titleZh}</p>
                       </div>
                     </div>
-
-                    {/* Description */}
                     <p className="text-base text-muted-foreground mb-4 leading-relaxed">{service.description}</p>
                     <p className="font-chinese text-sm text-muted-foreground mb-6 leading-relaxed">{service.descriptionZh}</p>
-
-                    {/* Features */}
                     <div className="space-y-2">
                       {service.features.map((feature, idx) => (
                         <div key={idx} className="flex items-start gap-2">
@@ -190,12 +220,9 @@ export default function Services() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-              Session Formats
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">Session Formats</h2>
             <p className="text-xl font-chinese text-muted-foreground">輔導形式</p>
           </motion.div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {sessionFormats.map((format, index) => (
               <motion.div
@@ -230,19 +257,11 @@ export default function Services() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto bg-gradient-to-r from-accent/10 to-accent/5 p-8 rounded-2xl border border-accent/20"
           >
-            <h3 className="text-2xl font-semibold text-foreground mb-4 text-center">
-              Languages Offered 服務語言
-            </h3>
+            <h3 className="text-2xl font-semibold text-foreground mb-4 text-center">Languages Offered 服務語言</h3>
             <div className="flex flex-wrap justify-center gap-4 mt-6">
-              <span className="px-6 py-3 bg-card rounded-lg border border-accent/30 text-foreground font-medium">
-                🇭🇰 廣東話 Cantonese
-              </span>
-              <span className="px-6 py-3 bg-card rounded-lg border border-accent/30 text-foreground font-medium">
-                🇨🇳 普通話 Mandarin
-              </span>
-              <span className="px-6 py-3 bg-card rounded-lg border border-accent/30 text-foreground font-medium">
-                🇬🇧 English
-              </span>
+              <span className="px-6 py-3 bg-card rounded-lg border border-accent/30 text-foreground font-medium">🇭🇰 廣東話 Cantonese</span>
+              <span className="px-6 py-3 bg-card rounded-lg border border-accent/30 text-foreground font-medium">🇨🇳 普通話 Mandarin</span>
+              <span className="px-6 py-3 bg-card rounded-lg border border-accent/30 text-foreground font-medium">🇬🇧 English</span>
             </div>
           </motion.div>
         </div>
@@ -257,29 +276,14 @@ export default function Services() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-              Professional Registrations
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">Professional Registrations</h2>
             <p className="text-xl font-chinese text-muted-foreground">專業註冊</p>
           </motion.div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
-              {
-                org: "Hong Kong Professional Counselling Association",
-                orgZh: "香港專業輔導協會",
-                status: "Associate Fellow 副院士",
-              },
-              {
-                org: "Asian Professional Counselling Association (HK)",
-                orgZh: "亞洲專業輔導協會(香港)",
-                status: "Registered Clinical Supervisor & Counselor",
-              },
-              {
-                org: "Australian Counseling Association",
-                orgZh: "澳洲輔導協會",
-                status: "Registered Counselor (MACA)",
-              },
+              { org: "Hong Kong Professional Counselling Association", orgZh: "香港專業輔導協會", status: "Associate Fellow 副院士" },
+              { org: "Asian Professional Counselling Association (HK)", orgZh: "亞洲專業輔導協會(香港)", status: "Registered Clinical Supervisor & Counselor" },
+              { org: "Australian Counseling Association", orgZh: "澳洲輔導協會", status: "Registered Counselor (MACA)" },
             ].map((reg, index) => (
               <motion.div
                 key={index}
@@ -307,20 +311,12 @@ export default function Services() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto bg-gradient-to-br from-accent/20 to-accent/10 p-12 rounded-2xl border border-accent/30 text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-              Ready to Begin Your Journey?
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">Ready to Begin Your Journey?</h2>
             <p className="text-xl font-chinese text-muted-foreground mb-8">準備好開始您的旅程了嗎？</p>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Book a session today to start your path toward healing, growth, and transformation.
-            </p>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">Book a session today to start your path toward healing, growth, and transformation.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/booking" className="px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors font-semibold text-lg">
-                Book a Session 預約輔導
-              </Link>
-              <Link to="/contact" className="px-8 py-4 bg-card border-2 border-accent text-foreground rounded-lg hover:bg-accent/10 transition-colors font-semibold text-lg">
-                Contact Me 聯絡我
-              </Link>
+              <Link to="/booking" className="px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors font-semibold text-lg">Book a Session 預約輔導</Link>
+              <Link to="/contact" className="px-8 py-4 bg-card border-2 border-accent text-foreground rounded-lg hover:bg-accent/10 transition-colors font-semibold text-lg">Contact Me 聯絡我</Link>
             </div>
           </motion.div>
         </div>

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Briefcase, Church, School, Heart, Users, BookOpen, GraduationCap } from "lucide-react";
+import felixPortrait from "@/assets/FelixPortMacquaire.jpg";
 
 const experiences = [
   {
@@ -55,7 +56,7 @@ const experiences = [
   {
     role: "Founding Director & Clinical Supervisor",
     roleZh: "創辦主任及臨床督導",
-    organization: "Lutheran Family Counselling Centre, Hong Kong",
+    organization: "Family Counselling Centre, Lutheran Church - Hong Kong Synod",
     organizationZh: "香港路德會家庭輔導中心",
     period: "Past Experience",
     description: "Established and led counseling center providing family therapy services",
@@ -73,7 +74,7 @@ const experiences = [
     color: "from-amber-500/20 to-amber-600/20",
   },
   {
-    role: "Guest Lecturer",
+    role: "Visiting Lecturer",
     roleZh: "客席講師",
     organization: "Multiple Theological Seminaries & Universities",
     organizationZh: "多間神學院及大專院校",
@@ -98,7 +99,7 @@ const teachingRoles = [
     institutionZh: "協同神學院",
   },
   {
-    title: "Guest Lecturer - Life Growth Course",
+    title: "Visiting Lecturer - Life Growth Course",
     titleZh: "生命成長課程客席講師",
     institution: "Alliance Bible Seminary",
     institutionZh: "建道神學院",
@@ -107,7 +108,7 @@ const teachingRoles = [
 
 export default function ExperienceSection() {
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-gradient-warm bg-pattern-dots">
       <div className="container-wide mx-auto">
         {/* Header */}
         <motion.div
@@ -123,54 +124,77 @@ export default function ExperienceSection() {
           <div className="gold-line-center mt-6" />
         </motion.div>
 
-        {/* Main Experiences */}
-        <div className="mb-16">
-          <div className="space-y-6">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group"
-              >
-                <div className="relative bg-card p-6 rounded-lg border border-accent/10 hover:border-accent/30 transition-all hover:shadow-lg">
-                  {/* Background Gradient */}
-                  <div className={`absolute inset-0 bg-gradient-to-r ${exp.color} opacity-0 group-hover:opacity-100 transition-opacity rounded-lg`} />
-                  
-                  <div className="relative flex gap-6">
-                    {/* Icon */}
-                    <div className="flex-shrink-0">
-                      <div className="p-4 bg-accent/10 rounded-lg group-hover:bg-accent/20 transition-colors">
-                        <exp.icon className="w-8 h-8 text-accent" />
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="flex-1">
-                      <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
-                        <div>
-                          <h3 className="text-xl font-semibold text-foreground">{exp.role}</h3>
-                          <p className="font-chinese text-muted-foreground">{exp.roleZh}</p>
+        {/* Two-column layout: experiences + portrait */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
+          {/* Main Experiences - 2/3 width */}
+          <div className="lg:col-span-2">
+            <div className="space-y-4">
+              {experiences.map((exp, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08 }}
+                  className="group"
+                >
+                  <div className="relative bg-card p-5 rounded-lg border border-accent/10 hover:border-accent/30 transition-all hover:shadow-lg">
+                    <div className={`absolute inset-0 bg-gradient-to-r ${exp.color} opacity-0 group-hover:opacity-100 transition-opacity rounded-lg`} />
+                    <div className="relative flex gap-5">
+                      <div className="flex-shrink-0">
+                        <div className="p-3 bg-accent/10 rounded-lg group-hover:bg-accent/20 transition-colors">
+                          <exp.icon className="w-6 h-6 text-accent" />
                         </div>
-                        <span className="px-3 py-1 bg-accent/20 text-accent rounded-full text-sm font-medium">
-                          {exp.period}
-                        </span>
                       </div>
-                      <p className="text-base font-medium text-foreground/90 mb-1">{exp.organization}</p>
-                      <p className="font-chinese text-sm text-muted-foreground mb-3">{exp.organizationZh}</p>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{exp.description}</p>
+                      <div className="flex-1">
+                        <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
+                          <div>
+                            <h3 className="text-base font-semibold text-foreground">{exp.role}</h3>
+                            <p className="font-chinese text-sm text-muted-foreground">{exp.roleZh}</p>
+                          </div>
+                          <span className="px-2 py-0.5 bg-accent/20 text-accent rounded-full text-xs font-medium whitespace-nowrap">
+                            {exp.period}
+                          </span>
+                        </div>
+                        <p className="text-sm font-medium text-foreground/90 mb-0.5">{exp.organization}</p>
+                        <p className="font-chinese text-xs text-muted-foreground mb-1">{exp.organizationZh}</p>
+                        <p className="text-xs text-muted-foreground leading-relaxed">{exp.description}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
+
+          {/* Portrait - 1/3 width, sticky */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="lg:col-span-1 hidden lg:block"
+          >
+            <div className="sticky top-24">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl translate-x-3 translate-y-3" />
+                <div className="absolute -inset-4 bg-gradient-to-br from-accent/10 via-transparent to-accent/5 rounded-3xl blur-2xl" />
+                <img
+                  src={felixPortrait}
+                  alt="Dr. Felix Tong - Port Macquarie"
+                  className="relative rounded-2xl w-full object-cover shadow-2xl border-2 border-accent/20"
+                />
+              </div>
+              <div className="mt-6 p-5 bg-card rounded-xl border border-accent/20 shadow-sm">
+                <p className="text-sm font-chinese text-foreground font-semibold mb-2">超過二十年服務經驗</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">Over 20 years dedicated to counseling, pastoral care, education, and cross-cultural ministry.</p>
+              </div>
+            </div>
+          </motion.div>
         </div>
 
         {/* Teaching Roles */}
-        <div className="mb-16">
+        <div className="mb-12">
           <h3 className="text-2xl font-display font-semibold mb-8 text-center">
             Teaching Appointments <span className="font-chinese text-muted-foreground">教學任命</span>
           </h3>
@@ -182,7 +206,7 @@ export default function ExperienceSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-gradient-to-br from-accent/5 to-accent/10 p-6 rounded-lg border border-accent/20"
+                className="bg-gradient-to-br from-accent/5 to-accent/10 p-6 rounded-lg border border-accent/20 hover:shadow-md transition-shadow"
               >
                 <BookOpen className="w-6 h-6 text-accent mb-4" />
                 <h4 className="font-semibold text-foreground mb-1">{role.title}</h4>
