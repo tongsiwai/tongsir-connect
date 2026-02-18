@@ -14,9 +14,7 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      // Replace 'YOUR_FORM_ID' with your actual Formspree form ID
-      // Get it from https://formspree.io after signing up
-      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      const response = await fetch('https://formspree.io/f/xzdavdok', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
