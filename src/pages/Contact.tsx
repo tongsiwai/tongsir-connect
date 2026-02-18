@@ -52,7 +52,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-gradient-radial">
       <div className="container-narrow mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <h1 className="heading-section font-chinese">與我聯絡</h1>
