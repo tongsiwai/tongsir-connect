@@ -59,13 +59,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   onClick={scrollToTop}
                   onMouseEnter={() => setHoveredItem(item.path)}
                   onMouseLeave={() => setHoveredItem(null)}
-                  className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                  className={`px-3 py-2 text-sm font-medium rounded-md transition-colors inline-flex items-center justify-center ${
                     isActive 
                       ? "bg-accent/10 text-accent" 
                       : "text-muted-foreground hover:text-foreground hover:bg-accent/5"
                   }`}
+                  style={{ minWidth: '80px' }}
                 >
-                  <span className="inline-block min-w-max transition-opacity duration-200">
+                  <span className="block text-center transition-opacity duration-200">
                     {isHovered ? item.labelEn : (
                       <span className="font-chinese">{item.label}</span>
                     )}
