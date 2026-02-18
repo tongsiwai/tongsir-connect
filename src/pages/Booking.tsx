@@ -41,11 +41,17 @@ export default function Booking() {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="mt-12 card-warm text-center"
         >
-          <p className="text-muted-foreground font-body">
-            To book an appointment, please contact via the{" "}
-            <a href="/contact" className="text-accent hover:underline font-medium">Contact page</a>{" "}
-            or email directly.
+          <p className="text-muted-foreground font-body mb-6">
+            Book your appointment directly via Google Calendar:
           </p>
+          <a
+            href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2SRHjdB_rHgf8f5OEtGKozFUELzBeIJvL3GGEhkSK6ZhQe7obW_gloC0YlKdsWCTJKDBf7CFGk?gv=true"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
+          >
+            <Calendar size={16} /> Book an Appointment 立即預約
+          </a>
         </motion.div>
       </div>
     </section>
