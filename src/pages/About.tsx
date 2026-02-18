@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Heart, Globe, BookOpen, Users, Award, Lightbulb, GraduationCap, FileText, ArrowRight, ExternalLink } from "lucide-react";
+import { Heart, Globe, BookOpen, Users, Award, Lightbulb, GraduationCap, ExternalLink } from "lucide-react";
 import felixPhoto from "@/assets/Felix2.jpg";
 import mslcPhoto1 from "@/assets/MSLC02.jpg";
 import mslcPhoto2 from "@/assets/MSLC03.jpg";
-import portMacquairePhoto from "@/assets/FelixPortMacquaire.jpg";
 
 const education = [
   {
@@ -80,8 +79,8 @@ const credentials = [
     link: null,
   },
   {
-    title: "Registered Counselor Level 4",
-    titleZh: "合格註冊輔導員",
+    title: "Registered Counselor Level 4 Member",
+    titleZh: "澳洲輔導協會第四級會員",
     org: "Australian Counselling Association (ACA)",
     badge: "ACA Level 4",
     link: null,
@@ -127,31 +126,6 @@ const credentials = [
     org: "New Zealand Association of Counsellors",
     badge: "NZAC",
     link: "https://nzac.org.nz",
-  },
-  {
-    title: "NZCCA Member",
-    titleZh: "紐西蘭基督教輔導協會會員",
-    org: "New Zealand Christian Counselling Association",
-    badge: "NZCCA",
-    link: "https://nzcca.org.nz",
-  },
-];
-
-const blogPosts = [
-  {
-    title: "靈修與心理輔導的整合",
-    date: "2024-12-15",
-    excerpt: "探索靈性指導與心理輔導如何在當代生活中互相補充...",
-  },
-  {
-    title: "Focusing-Oriented Therapy in Practice",
-    date: "2024-11-20",
-    excerpt: "How experiential focusing can deepen therapeutic encounters and personal growth...",
-  },
-  {
-    title: "跨文化牧養的挑戰與祝福",
-    date: "2024-10-05",
-    excerpt: "在紐西蘭多元文化環境中牧養的反思與學習...",
   },
 ];
 
@@ -322,26 +296,6 @@ export default function About() {
               </div>
             </motion.div>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="mt-6 relative overflow-hidden rounded-xl"
-          >
-            <img
-              src={portMacquairePhoto}
-              alt="Dr. Felix Tong - Port Macquaire"
-              className="w-full h-96 object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end">
-              <div className="p-8 text-white">
-                <p className="text-xl font-semibold">Serving Across Cultures</p>
-                <p className="font-chinese text-base">跨文化事工服務</p>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
 
@@ -494,9 +448,7 @@ export default function About() {
                     <p className="text-accent font-semibold mb-2">2008 • 第八屆</p>
                     <h3 className="text-xl font-bold text-foreground mb-2">Hong Kong Outstanding Teacher</h3>
                     <p className="font-chinese text-base text-muted-foreground mb-3">香港傑出教師</p>
-                    <p className="text-sm text-muted-foreground">
-                      Awarded by Hong Kong Outstanding Teachers Association
-                    </p>
+                    <p className="text-sm text-muted-foreground">Awarded by Hong Kong Outstanding Teachers Association</p>
                   </div>
                 </div>
               </motion.div>
@@ -514,66 +466,11 @@ export default function About() {
                     <p className="text-accent font-semibold mb-2">2009 • 第六屆</p>
                     <h3 className="text-xl font-bold text-foreground mb-2">Outstanding Teacher Award (Caring)</h3>
                     <p className="font-chinese text-base text-muted-foreground mb-3">香港優秀教師獎(關愛組)</p>
-                    <p className="text-sm text-muted-foreground">
-                      Awarded by Hong Kong Federation of Education Workers in recognition of outstanding performance in counseling students and families
-                    </p>
+                    <p className="text-sm text-muted-foreground">Awarded by Hong Kong Federation of Education Workers in recognition of outstanding performance in counseling students and families</p>
                   </div>
                 </div>
               </motion.div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Recent Articles Section */}
-      <section className="section-padding bg-muted/30">
-        <div className="container-wide mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-              <span className="font-chinese">其他文章</span>
-            </h2>
-            <p className="text-xl text-muted-foreground">Recent writings and reflections</p>
-            <div className="gold-line-center mt-6" />
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {blogPosts.map((post, i) => (
-              <motion.article
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="bg-card rounded-xl p-6 border border-accent/10 hover:border-accent/30 hover:shadow-lg transition-all group cursor-pointer"
-              >
-                <time className="text-xs text-accent font-semibold uppercase tracking-wider">
-                  {post.date}
-                </time>
-                <h3 className="text-base font-display font-semibold text-foreground mt-2 group-hover:text-accent transition-colors">
-                  {post.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
-                  {post.excerpt}
-                </p>
-                <span className="inline-flex items-center gap-1 text-sm text-accent mt-4 font-medium group-hover:gap-2 transition-all">
-                  Read more <ArrowRight size={14} />
-                </span>
-              </motion.article>
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <Link
-              to="/courses"
-              className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-accent transition-colors"
-            >
-              View all articles <ArrowRight size={14} />
-            </Link>
           </div>
         </div>
       </section>
@@ -594,10 +491,10 @@ export default function About() {
 
             <div className="prose prose-lg max-w-none text-muted-foreground">
               <p className="text-lg leading-relaxed mb-6 font-chinese">
-                唐博士擁有十多年輔導經驗，專注於婚姻家庭治療、靈修指導及聚焦取向心理治療。他致力於跨文化事工，在奧克蘭服事華人社群，同時亦為大學生提供牧養關懷。
+                唐博士擁有廿多年輔導經驗，專注於婚姻家庭治療、靈修指導及聚焦取向心理治療。他致力於跨文化事工，在奧克蘭服事華人社群，同時亦為大學生提供牧養關懷。
               </p>
               <p className="text-lg leading-relaxed">
-                With over 10 years of counseling experience, Dr. Tong specializes in marriage and family therapy, spiritual direction, and focusing-oriented therapy. He is dedicated to cross-cultural ministry, serving the Chinese community in Auckland while providing pastoral care to university students.
+                With over 20 years of counseling experience, Dr. Tong specializes in marriage and family therapy, spiritual direction, and focusing-oriented therapy. He is dedicated to cross-cultural ministry, serving the Chinese community in Auckland while providing pastoral care to university students.
               </p>
             </div>
 
