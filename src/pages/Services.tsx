@@ -110,7 +110,7 @@ export default function Services() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-b from-accent/10 to-background">
+      <section className="section-padding bg-hero-pattern">
         <div className="container-wide mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -133,7 +133,7 @@ export default function Services() {
       </section>
 
       {/* Services Grid */}
-      <section className="section-padding">
+      <section className="section-padding bg-background bg-pattern-dots">
         <div className="container-wide mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {services.map((service, index) => (
@@ -182,7 +182,7 @@ export default function Services() {
       </section>
 
       {/* Session Formats */}
-      <section className="section-padding bg-muted/30">
+      <section className="section-padding bg-gradient-warm bg-soft-texture">
         <div className="container-wide mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -222,7 +222,7 @@ export default function Services() {
       </section>
 
       {/* Languages Offered */}
-      <section className="section-padding">
+      <section className="section-padding bg-background bg-pattern-subtle-grid">
         <div className="container-wide mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -299,7 +299,7 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-gradient-radial">
         <div className="container-wide mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
