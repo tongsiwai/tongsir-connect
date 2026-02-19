@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Instagram, Facebook, Youtube, LogIn } from "lucide-react";
+import { Menu, X, Instagram, Facebook, Youtube, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const navItems = [
   { path: "/", label: "主頁", labelEn: "Home" },
@@ -25,6 +26,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const location = useLocation();
+  const { language, setLanguage, t } = useLanguage();
 
   // Check if current path starts with /blog for highlighting
   const isBlogPath = location.pathname.startsWith('/blog');
@@ -32,6 +34,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   // Scroll to top function
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Toggle language
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'zh' : 'en');
   };
 
   return (
@@ -67,7 +74,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   style={{ minWidth: '80px' }}
                 >
                   <span className="block text-center transition-opacity duration-200">
-                    {isHovered ? item.labelEn : (
+                    {language === 'en' ? item.labelEn : (
                       <span className="font-chinese">{item.label}</span>
                     )}
                   </span>
@@ -77,6 +84,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </nav>
 
           <div className="hidden lg:flex items-center gap-3">
+            {/* Language Toggle */}
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-1 px-3 py-1.5 rounded-md bg-muted hover:bg-accent/10 text-muted-foreground hover:text-accent transition-colors text-sm font-medium"
+              title={language === 'en' ? 'Switch to Chinese' : 'Switch to English'}
+            >
+              <Globe size={16} />
+              <span>{language === 'en' ? '中文' : 'EN'}</span>
+            </button>
+            
             {socialLinks.map(({ icon: Icon, href, label }) => (
               <a key={label} href={href} target="_blank" rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-accent transition-colors">
@@ -84,7 +101,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </a>
             ))}
             <Link to="/booking" onClick={scrollToTop} className="ml-3 px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors text-sm font-medium">
-              預約 Book Now
+              {t('Book Now', '預約')}
             </Link>
           </div>
 
@@ -124,17 +141,31 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                           : "text-foreground/80 hover:text-foreground hover:bg-accent/5"
                       }`}
                     >
-                      <span className="font-chinese">{item.label}</span>
+                      {language === 'en' ? item.labelEn : (
+                        <span className="font-chinese">{item.label}</span>
+                      )}
                     </Link>
                   );
                 })}
-                <div className="flex items-center gap-4 pt-3 border-t border-border mt-2">
-                  {socialLinks.map(({ icon: Icon, href, label }) => (
-                    <a key={label} href={href} target="_blank" rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-accent transition-colors">
-                      <Icon size={18} />
-                    </a>
-                  ))}
+                
+                <div className="flex items-center justify-between pt-3 border-t border-border mt-2">
+                  <div className="flex items-center gap-4">
+                    {socialLinks.map(({ icon: Icon, href, label }) => (
+                      <a key={label} href={href} target="_blank" rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-accent transition-colors">
+                        <Icon size={18} />
+                      </a>
+                    ))}
+                  </div>
+                  
+                  {/* Language Toggle for Mobile */}
+                  <button
+                    onClick={toggleLanguage}
+                    className="flex items-center gap-1 px-3 py-1.5 rounded-md bg-muted hover:bg-accent/10 text-muted-foreground hover:text-accent transition-colors text-sm font-medium"
+                  >
+                    <Globe size={16} />
+                    <span>{language === 'en' ? '中文' : 'EN'}</span>
+                  </button>
                 </div>
               </nav>
             </motion.div>
@@ -155,38 +186,44 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <p className="text-sm opacity-70 mt-2">Auckland, New Zealand</p>
             </div>
             <div>
-              <h4 className="font-display text-sm font-semibold uppercase tracking-wider mb-3 opacity-80">About</h4>
+              <h4 className="font-display text-sm font-semibold uppercase tracking-wider mb-3 opacity-80">
+                {t('About', '關於')}
+              </h4>
               <div className="flex flex-col gap-2">
-                <Link to="/about" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
-                  我的簡介
+                <Link to="/about" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity">
+                  {language === 'en' ? 'About Me' : <span className="font-chinese">我的簡介</span>}
                 </Link>
-                <Link to="/services" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
-                  輔導服務
+                <Link to="/services" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity">
+                  {language === 'en' ? 'Services' : <span className="font-chinese">輔導服務</span>}
                 </Link>
-                <Link to="/courses" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
-                  課程/出版
+                <Link to="/courses" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity">
+                  {language === 'en' ? 'Courses' : <span className="font-chinese">課程/出版</span>}
                 </Link>
-                <Link to="/blog" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
-                  文章
+                <Link to="/blog" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity">
+                  {language === 'en' ? 'Blog' : <span className="font-chinese">文章</span>}
                 </Link>
               </div>
             </div>
             <div>
-              <h4 className="font-display text-sm font-semibold uppercase tracking-wider mb-3 opacity-80">Get Started</h4>
+              <h4 className="font-display text-sm font-semibold uppercase tracking-wider mb-3 opacity-80">
+                {t('Get Started', '開始')}
+              </h4>
               <div className="flex flex-col gap-2">
-                <Link to="/booking" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
-                  預約服務
+                <Link to="/booking" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity">
+                  {language === 'en' ? 'Book Service' : <span className="font-chinese">預約服務</span>}
                 </Link>
-                <Link to="/contact" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
-                  聯絡交流
+                <Link to="/contact" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity">
+                  {language === 'en' ? 'Contact' : <span className="font-chinese">聯絡交流</span>}
                 </Link>
-                <Link to="/supporters" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity font-chinese">
-                  同行支持者
+                <Link to="/supporters" onClick={scrollToTop} className="text-sm opacity-70 hover:opacity-100 transition-opacity">
+                  {language === 'en' ? 'Supporters' : <span className="font-chinese">同行支持者</span>}
                 </Link>
               </div>
             </div>
             <div>
-              <h4 className="font-display text-sm font-semibold uppercase tracking-wider mb-3 opacity-80">Connect</h4>
+              <h4 className="font-display text-sm font-semibold uppercase tracking-wider mb-3 opacity-80">
+                {t('Connect', '連繫')}
+              </h4>
               <div className="flex gap-4 mb-4">
                 {socialLinks.map(({ icon: Icon, href, label }) => (
                   <a key={label} href={href} target="_blank" rel="noopener noreferrer"
@@ -196,7 +233,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 ))}
               </div>
               <p className="text-xs opacity-60">
-                Providing counseling, spiritual direction, and education across cultures.
+                {t(
+                  'Providing counseling, spiritual direction, and education across cultures.',
+                  '提供跨文化的輔導、靈修指導及教育服務。'
+                )}
               </p>
             </div>
           </div>
