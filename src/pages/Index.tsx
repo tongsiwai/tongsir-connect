@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 import HeroSection from "@/components/home/HeroSection";
 import ExperienceSection from "@/components/home/ExperienceSection";
 import YoutubeSection from "@/components/home/YoutubeSection";
 import churchBg from "@/assets/MSLC02.jpg";
 
 export default function Index() {
+  const { t } = useLanguage();
+  
   return (
     <>
       <HeroSection />
@@ -23,14 +26,14 @@ export default function Index() {
             className="max-w-3xl"
           >
             <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4">
-              Calling & Ministry
+              {t('Calling & Ministry', '呼召與服事')}
             </h2>
             <div className="gold-line mb-6"></div>
-            <p className="text-xl font-chinese text-muted-foreground mb-8">呼召與服事</p>
-            <p className="text-lg md:text-xl text-foreground/90 leading-relaxed font-chinese">
-              以信仰、輔導與創意教育同行，服事家庭、教會與社群。
-              <br />
-              致力於在生命的不同階段，提供專業的支持與靈性的引導。
+            <p className="text-lg md:text-xl text-foreground/90 leading-relaxed">
+              {t(
+                'Walking alongside with faith, counseling, and creative education, serving families, churches, and communities. Committed to providing professional support and spiritual guidance at different stages of life.',
+                '以信仰、輔導與創意教育同行，服事家庭、教會與社群。致力於在生命的不同階段，提供專業的支持與靈性的引導。'
+              )}
             </p>
           </motion.div>
         </div>
