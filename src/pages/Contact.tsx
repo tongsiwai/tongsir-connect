@@ -1,166 +1,165 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Send, Instagram, Facebook, Youtube, CheckCircle } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { Mail, Phone, MapPin, Send, Instagram, Facebook, Youtube } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+
+const contactInfo = [
+  { icon: Mail, labelEn: "Email", labelZh: "電子郵件", value: "tongsir@gmail.com", href: "mailto:tongsir@gmail.com" },
+  { icon: Phone, labelEn: "Phone (NZ)", labelZh: "電話 (紐西蘭)", value: "+64 21 190 3568", href: "tel:+64211903568" },
+  { icon: MapPin, labelEn: "Location", labelZh: "位置", value: "Auckland, New Zealand", href: null },
+];
+
+const socialLinks = [
+  { icon: Instagram, name: "Instagram", href: "https://www.instagram.com/tongsiwai/" },
+  { icon: Facebook, name: "Facebook", href: "https://www.facebook.com/tongsir/" },
+  { icon: Youtube, name: "YouTube", href: "https://www.youtube.com/@SlowFlowNewLifeChannel" },
+];
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const { toast } = useToast();
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch('https://formspree.io/f/xzdavdok', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          phone: form.phone,
-          message: form.message,
-        }),
-      });
-
-      if (response.ok) {
-        setSubmitted(true);
-        setForm({ name: "", email: "", phone: "", message: "" });
-        toast({
-          title: "成功發送 Message Sent!",
-          description: "感謝您的留言，我們會盡快回覆。Thank you for your message!",
-        });
-        
-        // Reset submitted state after 5 seconds
-        setTimeout(() => setSubmitted(false), 5000);
-      } else {
-        throw new Error('Failed to send message');
-      }
-    } catch (error) {
-      toast({
-        title: "發送失敗 Failed to send",
-        description: "請稍後再試或直接發送電郵至 tongsir@gmail.com",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
+  const { t, language } = useLanguage();
+  
   return (
-    <section className="section-padding bg-gradient-radial">
+    <section className="section-padding bg-gradient-warm">
       <div className="container-narrow mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-          <h1 className="heading-section font-chinese">與我聯絡</h1>
-          <p className="heading-sub">Get in Touch</p>
-          <div className="gold-line mt-4" />
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.6 }}
+          className="text-center"
+        >
+          <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
+            {t('Get in Touch', '聯絡交流')}
+          </h1>
+          <div className="gold-line-center mt-6" />
+          <p className="text-lg text-muted-foreground mt-6 max-w-2xl mx-auto">
+            {t(
+              "Feel free to reach out for counseling services, speaking engagements, or general inquiries.",
+              "歡迎就輔導服務、講座邀約或一般查詢與我聯絡。"
+            )}
+          </p>
         </motion.div>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Form */}
-          <motion.form
-            onSubmit={handleSubmit}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-5"
-          >
-            {([
-              { name: "name" as const, label: "Name 姓名", type: "text", required: true },
-              { name: "email" as const, label: "Email 電郵", type: "email", required: true },
-              { name: "phone" as const, label: "Phone 電話 (optional)", type: "tel", required: false },
-            ]).map((field) => (
-              <div key={field.name}>
-                <label className="text-sm font-medium text-foreground">{field.label}</label>
+        {/* Contact Info Cards */}
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {contactInfo.map((info, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              className="bg-card rounded-xl border border-border p-6 text-center hover:shadow-lg transition-shadow"
+            >
+              <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                <info.icon className="text-accent" size={22} />
+              </div>
+              <h3 className="text-sm font-semibold text-foreground mb-2">
+                {language === 'en' ? info.labelEn : <span className="font-chinese">{info.labelZh}</span>}
+              </h3>
+              {info.href ? (
+                <a href={info.href} className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                  {info.value}
+                </a>
+              ) : (
+                <p className="text-sm text-muted-foreground">{info.value}</p>
+              )}
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Contact Form */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="mt-16 bg-card rounded-2xl border border-border p-8 md:p-12 shadow-lg"
+        >
+          <h2 className="text-2xl font-display font-bold text-foreground mb-6 text-center">
+            {t('Send a Message', '傳送訊息')}
+          </h2>
+          <form className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                  {t('Name', '姓名')}
+                </label>
                 <input
-                  type={field.type}
-                  required={field.required}
-                  value={form[field.name]}
-                  onChange={(e) => setForm({ ...form, [field.name]: e.target.value })}
-                  disabled={isSubmitting}
-                  className="mt-1 w-full px-4 py-2.5 rounded-lg border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                  type="text"
+                  id="name"
+                  className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all"
+                  placeholder={t('Your name', '您的姓名')}
                 />
               </div>
-            ))}
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                  {t('Email', '電子郵件')}
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all"
+                  placeholder={t('your@email.com', '您的電子郵件')}
+                />
+              </div>
+            </div>
             <div>
-              <label className="text-sm font-medium text-foreground">Message 留言</label>
+              <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
+                {t('Subject', '主題')}
+              </label>
+              <input
+                type="text"
+                id="subject"
+                className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all"
+                placeholder={t('How can I help you?', '我可以如何幫助您？')}
+              />
+            </div>
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                {t('Message', '訊息')}
+              </label>
               <textarea
-                required
-                rows={5}
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                disabled={isSubmitting}
-                className="mt-1 w-full px-4 py-2.5 rounded-lg border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 transition resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                id="message"
+                rows={6}
+                className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all resize-none"
+                placeholder={t('Your message...', '您的訊息...')}
               />
             </div>
             <button
               type="submit"
-              disabled={isSubmitting || submitted}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full md:w-auto px-8 py-3 bg-accent text-white rounded-lg font-semibold hover:bg-accent/90 transition-all flex items-center justify-center gap-2 mx-auto"
             >
-              {submitted ? (
-                <>
-                  <CheckCircle size={16} /> 已發送 Sent!
-                </>
-              ) : isSubmitting ? (
-                <>
-                  <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
-                  發送中... Sending...
-                </>
-              ) : (
-                <>
-                  <Send size={16} /> Send Message
-                </>
-              )}
+              <Send size={18} />
+              {t('Send Message', '傳送訊息')}
             </button>
-          </motion.form>
+          </form>
+        </motion.div>
 
-          {/* Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
-            <div className="card-warm">
-              <div className="flex items-center gap-3 mb-2">
-                <MapPin className="text-accent" size={20} />
-                <h3 className="font-display font-semibold text-foreground">Location</h3>
-              </div>
-              <p className="text-sm text-muted-foreground">Auckland, New Zealand</p>
-            </div>
-            <div className="card-warm">
-              <div className="flex items-center gap-3 mb-2">
-                <Mail className="text-accent" size={20} />
-                <h3 className="font-display font-semibold text-foreground">Email</h3>
-              </div>
-              <a href="mailto:tongsir@gmail.com" className="text-sm text-muted-foreground hover:text-accent transition-colors">
-                tongsir@gmail.com
+        {/* Social Links */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="mt-16 text-center"
+        >
+          <h3 className="text-xl font-display font-semibold text-foreground mb-6">
+            {t('Connect on Social Media', '社交媒體')}
+          </h3>
+          <div className="flex justify-center gap-6">
+            {socialLinks.map((social, index) => (
+              <a
+                key={index}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-accent/10 hover:bg-accent hover:text-white flex items-center justify-center text-accent transition-all duration-300 transform hover:scale-110"
+                aria-label={social.name}
+              >
+                <social.icon size={20} />
               </a>
-            </div>
-            <div className="card-warm">
-              <h3 className="font-display font-semibold text-foreground mb-3">Social Media</h3>
-              <div className="flex gap-4">
-                {[
-                  { icon: Instagram, href: "https://www.instagram.com/tongsiwai/", label: "Instagram" },
-                  { icon: Facebook, href: "https://www.facebook.com/tongsir/", label: "Facebook" },
-                  { icon: Youtube, href: "https://www.youtube.com/@SlowFlowNewLifeChannel", label: "YouTube" },
-                ].map(({ icon: Icon, href, label }) => (
-                  <a key={label} href={href} target="_blank" rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-accent/15 flex items-center justify-center text-accent hover:bg-accent hover:text-accent-foreground transition-colors">
-                    <Icon size={18} />
-                  </a>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

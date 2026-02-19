@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const categories = [
   {
@@ -10,103 +11,116 @@ const categories = [
         name: "靈修靜禱", 
         nameEn: "Devotion & Contemplation",
         url: "https://www.facebook.com/devote2HIM/",
-        description: "一段聆聽、分享的空間，透過默想、反省與人與神的關係"
+        description: "一段聆聽、分享的空間，透過默想、反省與人與神的關係",
+        descriptionEn: "A space for listening and sharing through meditation, reflection, and relationship with God"
       },
       { 
         name: "唐四塗鶉", 
         nameEn: "Tong Si Gallery",
         url: "http://tongsigallary.blogspot.com/",
-        description: "一個渴望成長的平凡人，希望用平凡的塗鶉，去觸動每個不平凡的心靈。與你聯繫，彼此交流與分享。"
+        description: "一個渴望成長的平凡人，希望用平凡的塗鶉，去觸動每個不平凡的心靈。與你聯繫，彼此交流與分享。",
+        descriptionEn: "An ordinary person yearning for growth, hoping to touch every extraordinary soul through ordinary sketches"
       },
       { 
         name: "父母童行", 
         nameEn: "Parenting Journey",
         url: "http://fcc-parenting.blogspot.com/",
-        description: "記下點點作為父母的學習"
+        description: "記下點點作為父母的學習",
+        descriptionEn: "Recording lessons learned as parents"
       },
     ],
   },
   {
-    title: "教會 Churches",
-    titleEn: "",
+    title: "教會",
+    titleEn: "Churches",
     links: [
       { 
         name: "Mountainside Lutheran Church", 
         nameEn: "",
         url: "https://mountainside.org.nz",
-        description: ""
+        description: "",
+        descriptionEn: ""
       },
       { 
         name: "Lutheran Church of New Zealand", 
         nameEn: "",
         url: "https://lutheran.org.nz",
-        description: ""
+        description: "",
+        descriptionEn: ""
       },
     ],
   },
   {
-    title: "紐西蘭專業組織 New Zealand Professional Organisations",
-    titleEn: "",
+    title: "紐西蘭專業組織",
+    titleEn: "New Zealand Professional Organisations",
     links: [
       { 
         name: "NZAC - New Zealand Association of Counsellors", 
         nameEn: "",
         url: "https://nzac.org.nz",
-        description: ""
+        description: "",
+        descriptionEn: ""
       },
       { 
         name: "The International Focusing Institute", 
         nameEn: "",
         url: "https://focusing.org",
-        description: ""
+        description: "",
+        descriptionEn: ""
       },
     ],
   },
   {
-    title: "澳洲專業組織 Australian Professional Organisations",
-    titleEn: "",
+    title: "澳洲專業組織",
+    titleEn: "Australian Professional Organisations",
     links: [
       { 
         name: "ACA - Australian Counselling Association", 
         nameEn: "",
         url: "https://www.theaca.net.au",
-        description: ""
+        description: "",
+        descriptionEn: ""
       },
     ],
   },
   {
-    title: "香港專業組織 Hong Kong Professional Organisations",
-    titleEn: "",
+    title: "香港專業組織",
+    titleEn: "Hong Kong Professional Organisations",
     links: [
       { 
         name: "香港專業輔導協會 HKPCA", 
         nameEn: "Hong Kong Professional Counselling Association",
         url: "https://www.hkpca.org.hk",
-        description: ""
+        description: "",
+        descriptionEn: ""
       },
       { 
         name: "亞洲專業輔導及心理協會(香港) APCHK", 
         nameEn: "Asian Professional Counselling & Psychology Association (Hong Kong)",
         url: "https://www.apchk.org",
-        description: ""
+        description: "",
+        descriptionEn: ""
       },
     ],
   },
   {
-    title: "課程平台 Course Platforms",
-    titleEn: "",
+    title: "課程平台",
+    titleEn: "Course Platforms",
     links: [
       { 
         name: "ProLearning Asia", 
         nameEn: "",
         url: "https://www.prolearning.asia",
-        description: ""
+        description: "",
+        descriptionEn: ""
       },
     ],
   },
 ];
 
 export default function Links() {
+  const { t, language } = useLanguage();
+  
   return (
     <section className="section-padding bg-gradient-warm">
       <div className="container-narrow mx-auto">
@@ -117,9 +131,8 @@ export default function Links() {
           className="text-center"
         >
           <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
-            <span className="font-chinese">其他連結</span>
+            {t('Other Links & Resources', '其他連結')}
           </h1>
-          <p className="text-xl text-muted-foreground">Other Links & Resources</p>
           <div className="gold-line-center mt-6" />
         </motion.div>
 
@@ -132,8 +145,8 @@ export default function Links() {
               viewport={{ once: true }}
               transition={{ delay: ci * 0.1, duration: 0.5 }}
             >
-              <h2 className="text-2xl font-display font-semibold text-foreground mb-6 font-chinese">
-                {cat.title}
+              <h2 className="text-2xl font-display font-semibold text-foreground mb-6">
+                {language === 'en' ? cat.titleEn : <span className="font-chinese">{cat.title}</span>}
               </h2>
               <div className="grid gap-6">
                 {cat.links.map((link, i) => (
@@ -150,13 +163,15 @@ export default function Links() {
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-foreground group-hover:text-accent transition-colors mb-2 font-chinese">
-                          {link.name}
+                        <h3 className="text-lg font-semibold text-foreground group-hover:text-accent transition-colors mb-2">
+                          {language === 'en' && link.nameEn ? link.nameEn : <span className="font-chinese">{link.name}</span>}
                         </h3>
-                        {link.nameEn && (
-                          <p className="text-sm text-muted-foreground mb-2">{link.nameEn}</p>
+                        {language === 'en' && link.descriptionEn && (
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            {link.descriptionEn}
+                          </p>
                         )}
-                        {link.description && (
+                        {language === 'zh' && link.description && (
                           <p className="text-sm text-muted-foreground leading-relaxed font-chinese">
                             {link.description}
                           </p>
@@ -180,8 +195,11 @@ export default function Links() {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <p className="text-sm text-muted-foreground font-chinese">
-            這些連結記錄了唐博士在不同時期的分享與事工
+          <p className="text-sm text-muted-foreground">
+            {t(
+              "These links document Dr. Tong's sharing and ministry at different periods",
+              "這些連結記錄了唐博士在不同時期的分享與事工"
+            )}
           </p>
         </motion.div>
       </div>
