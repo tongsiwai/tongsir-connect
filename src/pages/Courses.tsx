@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { BookOpen, GraduationCap } from "lucide-react";
 import PublicationsSection from "@/components/home/PublicationsSection";
-import dfcBg from "@/assets/DesignForChange.jpg";
+import worshipBg from "@/assets/FelixWorshipHamilton.jpg";
 
 const courses = [
   {
@@ -30,7 +30,7 @@ export default function Courses() {
       <section 
         className="section-padding bg-photo-cover bg-photo-overlay-dark min-h-[500px] flex items-center pt-32 lg:pt-40"
         style={{ 
-          backgroundImage: `url(${dfcBg})`,
+          backgroundImage: `url(${worshipBg})`,
           backgroundPosition: 'center center'
         }}
       >
