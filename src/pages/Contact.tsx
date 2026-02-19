@@ -5,7 +5,7 @@ import churchBg from "@/assets/MSLC03.jpg";
 
 const contactInfo = [
   { icon: Mail, labelEn: "Email", labelZh: "電子郵件", value: "tongsir@gmail.com", href: "mailto:tongsir@gmail.com" },
-  { icon: Phone, labelEn: "Phone (NZ)", labelZh: "電話 (紐西蘭)", value: "+64 21 190 3568", href: "tel:+64211903568" },
+  { icon: Phone, labelEn: "Phone (NZ)", labelZh: "電話 (紐西蘭)", value: "+64 272007017", href: "tel:+64272007017" },
   { icon: MapPin, labelEn: "Location", labelZh: "位置", value: "Auckland, New Zealand", href: null },
 ];
 
