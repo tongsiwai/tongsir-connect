@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Heart, Users, Compass, Brain, Baby, GraduationCap, Video, MapPin, Church } from "lucide-react";
+import { Heart, Users, Compass, Brain, Baby, GraduationCap, Video, MapPin } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import felixPhoto from "@/assets/Felix2.jpg";
 import felixTalkBg from "@/assets/Felix-Talk.jpg";
 
@@ -109,6 +110,8 @@ const sessionFormats = [
 ];
 
 export default function Services() {
+  const { t, language } = useLanguage();
+  
   return (
     <div className="min-h-screen">
       {/* Hero Section with portrait */}
@@ -122,13 +125,13 @@ export default function Services() {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-4xl md:text-6xl font-display font-bold text-foreground mb-4">
-                Counseling Services
+                {t('Counseling Services', '輔導服務')}
               </h1>
-              <p className="text-2xl font-chinese text-accent mb-6">輔導服務</p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl">
-                Professional counseling, therapy, and spiritual direction services tailored to your unique needs and journey.
-                <br />
-                <span className="font-chinese block mt-2">為您的獨特需要和旅程量身定制的專業輔導、治療和靈修指導服務。</span>
+                {t(
+                  'Professional counseling, therapy, and spiritual direction services tailored to your unique needs and journey.',
+                  '為您的獨特需要和旅程量身定制的專業輔導、治療和靈修指導服務。'
+                )}
               </p>
               
               <div className="flex flex-wrap gap-3 mb-8">
@@ -159,7 +162,6 @@ export default function Services() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               </div>
-              {/* Decorative elements */}
               <div className="absolute -top-6 -right-6 w-32 h-32 bg-accent/20 rounded-full blur-3xl"></div>
               <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-primary/10 rounded-full blur-3xl"></div>
             </motion.div>
@@ -172,10 +174,9 @@ export default function Services() {
         <div className="container-wide mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4">
-              Services Offered
+              {t('Services Offered', '提供的服務')}
             </h2>
             <div className="gold-line-center mb-4"></div>
-            <p className="text-xl font-chinese text-muted-foreground">提供的服務</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -190,16 +191,10 @@ export default function Services() {
               >
                 <service.icon className="w-12 h-12 text-accent mb-6 group-hover:scale-110 transition-transform duration-300" />
                 <h3 className="text-xl font-bold text-foreground mb-1">
-                  {service.title}
+                  {language === 'en' ? service.title : <span className="font-chinese">{service.titleZh}</span>}
                 </h3>
-                <p className="text-lg font-chinese text-foreground mb-4">
-                  {service.titleZh}
-                </p>
                 <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                  {service.description}
-                </p>
-                <p className="text-muted-foreground font-chinese text-sm mb-6 leading-relaxed">
-                  {service.descriptionZh}
+                  {language === 'en' ? service.description : <span className="font-chinese">{service.descriptionZh}</span>}
                 </p>
                 <ul className="space-y-2">
                   {service.features.map((feature, idx) => (
@@ -215,7 +210,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Session Formats with Photo Background - Changed background position to top */}
+      {/* Talks & Workshops */}
       <section 
         className="section-padding bg-photo-cover bg-photo-overlay-left" 
         style={{ 
@@ -232,14 +227,14 @@ export default function Services() {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4">
-                Talks & Workshops
+                {t('Talks & Workshops', '講座、培訓及工作坊')}
               </h2>
               <div className="gold-line mb-6"></div>
-              <p className="text-xl font-chinese text-muted-foreground mb-8">講座、培訓及工作坊</p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-12 max-w-xl">
-                Dr. Felix Tong is available for speaking engagements, workshops, and seminars for churches, schools, organizations, and parent groups.
-                <br /><br />
-                <span className="font-chinese">提供專題講座、工作坊及培訓課程，範疇涵蓋婚姻家庭、親子教養、情緒教練、青少年成長、靈修指導及生命塑造等。</span>
+                {t(
+                  'Dr. Felix Tong is available for speaking engagements, workshops, and seminars for churches, schools, organizations, and parent groups. Topics include marriage & family, parenting, emotion coaching, spiritual direction, and life formation.',
+                  '提供專題講座、工作坊及培訓課程，範疇涵蓋婚姻家庭、親子教養、情緒教練、青少年成長、靈修指導及生命塑造等。'
+                )}
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -247,13 +242,10 @@ export default function Services() {
                   <div key={index} className="p-6 rounded-xl bg-background/60 backdrop-blur-md border border-white/20 shadow-lg">
                     <format.icon className="w-8 h-8 text-accent mb-4" />
                     <h3 className="text-lg font-bold text-foreground mb-1">
-                      {format.title}
+                      {language === 'en' ? format.title : <span className="font-chinese">{format.titleZh}</span>}
                     </h3>
-                    <p className="text-base font-chinese text-foreground mb-2">
-                      {format.titleZh}
-                    </p>
                     <p className="text-sm text-muted-foreground">
-                      {format.description}
+                      {language === 'en' ? format.description : <span className="font-chinese">{format.descriptionZh}</span>}
                     </p>
                   </div>
                 ))}
@@ -268,10 +260,9 @@ export default function Services() {
         <div className="container-wide mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl font-display font-bold text-foreground mb-4">
-              Professional Registrations
+              {t('Professional Registrations', '專業註冊')}
             </h2>
             <div className="gold-line-center mb-4"></div>
-            <p className="text-xl font-chinese text-muted-foreground italic">專業註冊</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -279,17 +270,20 @@ export default function Services() {
               { 
                 org: "Hong Kong Professional Counselling Association", 
                 orgZh: "香港專業輔導協會",
-                status: "Associate Fellow 副院士" 
+                status: "Associate Fellow",
+                statusZh: "副院士"
               },
               { 
                 org: "Asian Professional Counselling Association (HK)", 
                 orgZh: "亞洲專業輔導協會(香港)",
-                status: "Registered Clinical Supervisor & Counselor" 
+                status: "Registered Clinical Supervisor & Counselor",
+                statusZh: "註冊臨床督導及輔導員"
               },
               { 
                 org: "Australian Counseling Association", 
                 orgZh: "澳洲輔導協會",
-                status: "Registered Counselor (MACA)" 
+                status: "Registered Counselor (MACA)",
+                statusZh: "註冊輔導員"
               },
             ].map((reg, index) => (
               <motion.div
@@ -302,7 +296,9 @@ export default function Services() {
               >
                 <h4 className="text-lg font-bold text-foreground mb-2">{reg.org}</h4>
                 <p className="text-base font-chinese text-accent mb-4">{reg.orgZh}</p>
-                <p className="text-sm text-muted-foreground">{reg.status}</p>
+                <p className="text-sm text-muted-foreground">
+                  {language === 'en' ? reg.status : <span className="font-chinese">{reg.statusZh}</span>}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -320,26 +316,26 @@ export default function Services() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
-              Ready to Begin Your Journey?
+              {t('Ready to Begin Your Journey?', '準備好開始您的旅程了嗎？')}
             </h2>
-            <p className="text-2xl font-chinese mb-8 text-primary-foreground/90">準備好開始您的旅程了嗎？</p>
             <p className="text-lg mb-12 opacity-90 max-w-2xl mx-auto leading-relaxed">
-              Book a session today to start your path toward healing, growth, and transformation.
-              <br />
-              <span className="font-chinese">今天就預約，踏上您的癒合、成長與轉化之路。</span>
+              {t(
+                'Book a session today to start your path toward healing, growth, and transformation.',
+                '今天就預約，踏上您的癒合、成長與轉化之路。'
+              )}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 to="/booking" 
                 className="px-8 py-4 bg-accent text-white rounded-full font-semibold hover:bg-accent/90 transition-all shadow-xl hover:shadow-2xl"
               >
-                Book a Session 預約輔導
+                {t('Book a Session', '預約輔導')}
               </Link>
               <Link 
                 to="/contact" 
                 className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white rounded-full font-semibold hover:bg-white/20 transition-all"
               >
-                Contact Me 聯絡我
+                {t('Contact Me', '聯絡我')}
               </Link>
             </div>
           </motion.div>
