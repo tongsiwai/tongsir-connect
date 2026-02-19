@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Calendar, ArrowRight, BookOpen } from "lucide-react";
+import { Calendar, ArrowRight, BookOpen, Feather } from "lucide-react";
 import { blogArticles } from "@/data/blogArticles";
-import journalBg from "@/assets/OP-Journal.jpg";
+import talkBg from "@/assets/Felix-Talk.jpg";
 
 export default function Blog() {
   // Group articles by series
@@ -12,8 +12,11 @@ export default function Blog() {
     <div className="min-h-screen">
       {/* Header with Background Photo */}
       <section 
-        className="section-padding bg-photo-cover bg-photo-overlay-dark min-h-[400px] flex items-center"
-        style={{ backgroundImage: `url(${journalBg})` }}
+        className="section-padding bg-photo-cover bg-photo-overlay-dark min-h-[500px] flex items-center pt-32 lg:pt-40"
+        style={{ 
+          backgroundImage: `url(${talkBg})`,
+          backgroundPosition: 'center 35%'
+        }}
       >
         <div className="container-wide mx-auto relative z-10">
           <motion.div
@@ -22,16 +25,17 @@ export default function Blog() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-accent/20 backdrop-blur-sm mb-6">
-              <BookOpen className="w-8 h-8 text-accent" />
+            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent/20 backdrop-blur-sm mb-6 border-2 border-accent/30">
+              <Feather className="w-10 h-10 text-accent" strokeWidth={1.5} />
             </div>
-            <h1 className="text-4xl md:text-6xl font-display font-bold text-foreground mb-4 font-chinese">
+            <h1 className="text-5xl md:text-7xl font-display font-bold text-foreground mb-6 font-chinese">
               文章 Blog
             </h1>
-            <p className="text-xl text-foreground/90 leading-relaxed">
+            <div className="gold-line-center mb-6"></div>
+            <p className="text-xl md:text-2xl text-foreground/90 leading-relaxed mb-3">
               Reflections on faith, emotions, and spiritual growth
             </p>
-            <p className="text-lg font-chinese text-foreground/80 mt-2">
+            <p className="text-lg md:text-xl font-chinese text-foreground/80">
               關於信仰、情緒與靈性成長的反思
             </p>
           </motion.div>
