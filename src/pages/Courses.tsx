@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { BookOpen, GraduationCap } from "lucide-react";
 import PublicationsSection from "@/components/home/PublicationsSection";
-import talkBg from "@/assets/Felix-Talk.jpg";
+import dfcBg from "@/assets/DesignForChange.jpg";
 
 const courses = [
   {
@@ -28,10 +28,10 @@ export default function Courses() {
 
       {/* Page Header with Background */}
       <section 
-        className="section-padding bg-photo-cover bg-photo-overlay-dark min-h-[450px] flex items-center pt-32 lg:pt-40"
+        className="section-padding bg-photo-cover bg-photo-overlay-dark min-h-[500px] flex items-center pt-32 lg:pt-40"
         style={{ 
-          backgroundImage: `url(${talkBg})`,
-          backgroundPosition: 'center 40%'
+          backgroundImage: `url(${dfcBg})`,
+          backgroundPosition: 'center center'
         }}
       >
         <div className="container-wide mx-auto relative z-10">
@@ -48,8 +48,11 @@ export default function Courses() {
               課程 / 出版
             </h1>
             <div className="gold-line-center mb-6"></div>
-            <p className="text-xl md:text-2xl text-foreground/90">
+            <p className="text-xl md:text-2xl text-foreground/90 leading-relaxed">
               Courses &amp; Publications
+            </p>
+            <p className="text-lg font-chinese text-foreground/80 mt-2">
+              教育資源與學習工具
             </p>
           </motion.div>
         </div>
