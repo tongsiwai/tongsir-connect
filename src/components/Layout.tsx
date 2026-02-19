@@ -28,15 +28,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const { language, setLanguage, t } = useLanguage();
 
-  // Check if current path starts with /blog for highlighting
   const isBlogPath = location.pathname.startsWith('/blog');
 
-  // Scroll to top function
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Toggle language
   const toggleLanguage = () => {
     setLanguage(language === 'en' ? 'zh' : 'en');
   };
@@ -48,7 +45,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="container-wide mx-auto flex items-center justify-between h-16 px-6">
           <Link to="/" onClick={scrollToTop} className="flex items-center gap-2">
             <span className="font-display text-2xl font-bold tracking-tight text-foreground">TongSir</span>
-            <span className="font-chinese text-sm text-muted-foreground hidden sm:inline">唐思偉博士</span>
+            {language === 'zh' && (
+              <span className="font-chinese text-sm text-muted-foreground hidden sm:inline">唐思偉博士</span>
+            )}
+            {language === 'en' && (
+              <span className="text-sm text-muted-foreground hidden sm:inline">Dr. Felix Tong</span>
+            )}
           </Link>
 
           {/* Desktop nav */}
@@ -57,7 +59,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               const isActive = item.path === '/blog' 
                 ? isBlogPath 
                 : location.pathname === item.path;
-              const isHovered = hoveredItem === item.path;
               
               return (
                 <Link
@@ -84,7 +85,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </nav>
 
           <div className="hidden lg:flex items-center gap-3">
-            {/* Language Toggle */}
             <button
               onClick={toggleLanguage}
               className="flex items-center gap-1 px-3 py-1.5 rounded-md bg-muted hover:bg-accent/10 text-muted-foreground hover:text-accent transition-colors text-sm font-medium"
@@ -105,7 +105,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </Link>
           </div>
 
-          {/* Mobile toggle */}
           <button className="lg:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -158,7 +157,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     ))}
                   </div>
                   
-                  {/* Language Toggle for Mobile */}
                   <button
                     onClick={toggleLanguage}
                     className="flex items-center gap-1 px-3 py-1.5 rounded-md bg-muted hover:bg-accent/10 text-muted-foreground hover:text-accent transition-colors text-sm font-medium"
@@ -181,9 +179,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <h3 className="font-display text-lg font-semibold mb-3">TongSir</h3>
-              <p className="text-sm opacity-70 font-chinese">唐思偉博士</p>
-              <p className="text-sm opacity-70">Dr. Felix Tong</p>
-              <p className="text-sm opacity-70 mt-2">Auckland, New Zealand</p>
+              {language === 'zh' ? (
+                <>
+                  <p className="text-sm opacity-70 font-chinese">唐思偉博士</p>
+                  <p className="text-sm opacity-70 mt-2">紐西蘭奧克蘭</p>
+                </>
+              ) : (
+                <>
+                  <p className="text-sm opacity-70">Dr. Felix Tong</p>
+                  <p className="text-sm opacity-70 mt-2">Auckland, New Zealand</p>
+                </>
+              )}
             </div>
             <div>
               <h4 className="font-display text-sm font-semibold uppercase tracking-wider mb-3 opacity-80">
@@ -242,7 +248,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
           <div className="border-t border-primary-foreground/20 mt-8 pt-6 text-center text-sm opacity-60">
             <p>TongSir © 2019-{new Date().getFullYear()}. All rights reserved.</p>
-            <p className="mt-1 text-xs">Counselor • Pastor • Educator | 輔導員 • 傳道 • 教育工作者</p>
+            {language === 'zh' ? (
+              <p className="mt-1 text-xs font-chinese">輔導員 • 傳道 • 教育工作者</p>
+            ) : (
+              <p className="mt-1 text-xs">Counselor • Pastor • Educator</p>
+            )}
           </div>
         </div>
       </footer>

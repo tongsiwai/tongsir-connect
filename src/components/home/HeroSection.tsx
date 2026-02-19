@@ -1,27 +1,42 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 import heroPortrait from "@/assets/Felix.jpg";
 
-const roles = [
-  "崇拜者 Worshiper",
-  "默觀輔導員 Contemplative Counselor",
-  "臨床督導 Clinical Supervisor",
-  "教師/講師 Teacher & Lecturer",
-  "聚焦導師 Certified Focusing Trainer",
-  "聚焦取向心理治療師 Focusing-Oriented Therapist",
-  "牧師 Pastor",
-  "校牧 University Chaplain",
+const rolesZh = [
+  "崇拜者",
+  "默觀輔導員",
+  "臨床督導",
+  "教師/講師",
+  "聚焦導師",
+  "聚焦取向心理治療師",
+  "牧師",
+  "校牧",
+];
+
+const rolesEn = [
+  "Worshiper",
+  "Contemplative Counselor",
+  "Clinical Supervisor",
+  "Teacher & Lecturer",
+  "Certified Focusing Trainer",
+  "Focusing-Oriented Therapist",
+  "Pastor",
+  "University Chaplain",
 ];
 
 export default function HeroSection() {
   const [roleIndex, setRoleIndex] = useState(0);
+  const { language } = useLanguage();
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setRoleIndex((prev) => (prev + 1) % roles.length);
+      setRoleIndex((prev) => (prev + 1) % rolesZh.length);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  const currentRole = language === 'en' ? rolesEn[roleIndex] : rolesZh[roleIndex];
 
   return (
     <section className="section-padding overflow-hidden bg-gradient-to-b from-background to-accent/5">
@@ -33,21 +48,31 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4 font-body font-chinese">
-              輔導員 · 牧師 · 教育工作者
-            </p>
-            <p className="text-xs uppercase tracking-widest text-accent/70 mb-2">
-              Counselor · Pastor · Educator
-            </p>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight text-foreground leading-[1.1] mb-3">
-              TongSir
-            </h1>
-            <p className="text-2xl md:text-3xl font-display text-muted-foreground font-chinese">
-              唐思偉博士
-            </p>
-            <p className="text-xl md:text-2xl font-display text-muted-foreground/80 mt-1">
-              Dr. Felix Tong
-            </p>
+            {language === 'zh' ? (
+              <>
+                <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4 font-body font-chinese">
+                  輔導員 · 牧師 · 教育工作者
+                </p>
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight text-foreground leading-[1.1] mb-3">
+                  TongSir
+                </h1>
+                <p className="text-2xl md:text-3xl font-display text-muted-foreground font-chinese">
+                  唐思偉博士
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="text-xs uppercase tracking-widest text-accent/70 mb-2">
+                  Counselor · Pastor · Educator
+                </p>
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight text-foreground leading-[1.1] mb-3">
+                  TongSir
+                </h1>
+                <p className="text-xl md:text-2xl font-display text-muted-foreground mt-1">
+                  Dr. Felix Tong
+                </p>
+              </>
+            )}
           </motion.div>
 
           <motion.div
@@ -60,9 +85,9 @@ export default function HeroSection() {
               <div className="gold-line" />
               <span
                 key={roleIndex}
-                className="text-base md:text-lg font-body font-light text-accent italic animate-fade-up"
+                className={`text-base md:text-lg font-body font-light text-accent italic animate-fade-up ${language === 'zh' ? 'font-chinese' : ''}`}
               >
-                {roles[roleIndex]}
+                {currentRole}
               </span>
             </div>
           </motion.div>
@@ -73,17 +98,29 @@ export default function HeroSection() {
             transition={{ delay: 0.8, duration: 0.7 }}
             className="mt-8 space-y-4"
           >
-            <p className="text-base text-muted-foreground max-w-xl leading-relaxed font-body font-chinese">
-              <span className="font-semibold text-foreground">紐西蘭信義會蒙恩堂牧師</span>，負責華人事工及開展，並為<span className="font-semibold text-foreground">奧克蘭理工大學校牧</span>。
-            </p>
-            <p className="text-base text-muted-foreground max-w-xl leading-relaxed font-body">
-              Pastor at Mountainside Lutheran Church, New Zealand, serving Chinese ministry and Auckland University of Technology Chaplain.
-            </p>
-            <div className="flex flex-wrap gap-2 mt-6">
-              <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">🌏 Auckland, NZ</span>
-              <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">🎓 D.Min (Spiritual Direction)</span>
-              <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">🏆 Hong Kong Outstanding Teacher</span>
-            </div>
+            {language === 'zh' ? (
+              <>
+                <p className="text-base text-muted-foreground max-w-xl leading-relaxed font-body font-chinese">
+                  <span className="font-semibold text-foreground">紐西蘭信義會蒙恩堂牧師</span>，負責華人事工及開展，並為<span className="font-semibold text-foreground">奧克蘭理工大學校牧</span>。
+                </p>
+                <div className="flex flex-wrap gap-2 mt-6">
+                  <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">🌏 奧克蘭，紐西蘭</span>
+                  <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">🎓 教牧學博士（靈修指導）</span>
+                  <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">🏆 香港傑出教師</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <p className="text-base text-muted-foreground max-w-xl leading-relaxed font-body">
+                  Pastor at <span className="font-semibold text-foreground">Mountainside Lutheran Church</span>, New Zealand, serving Chinese ministry and <span className="font-semibold text-foreground">Auckland University of Technology Chaplain</span>.
+                </p>
+                <div className="flex flex-wrap gap-2 mt-6">
+                  <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">🌏 Auckland, NZ</span>
+                  <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">🎓 D.Min (Spiritual Direction)</span>
+                  <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">🏆 Hong Kong Outstanding Teacher</span>
+                </div>
+              </>
+            )}
           </motion.div>
         </div>
 
