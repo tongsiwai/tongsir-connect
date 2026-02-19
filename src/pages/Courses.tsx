@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { BookOpen } from "lucide-react";
+import { BookOpen, GraduationCap } from "lucide-react";
 import PublicationsSection from "@/components/home/PublicationsSection";
+import talkBg from "@/assets/Felix-Talk.jpg";
 
 const courses = [
   {
@@ -25,19 +26,29 @@ export default function Courses() {
   return (
     <div className="min-h-screen">
 
-      {/* Page Header */}
-      <section className="section-padding bg-hero-pattern">
-        <div className="container-wide mx-auto">
+      {/* Page Header with Background */}
+      <section 
+        className="section-padding bg-photo-cover bg-photo-overlay-dark min-h-[450px] flex items-center pt-32 lg:pt-40"
+        style={{ 
+          backgroundImage: `url(${talkBg})`,
+          backgroundPosition: 'center 40%'
+        }}
+      >
+        <div className="container-wide mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center"
+            className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl md:text-6xl font-display font-bold text-foreground mb-4 font-chinese">
+            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent/20 backdrop-blur-sm mb-6 border-2 border-accent/30">
+              <GraduationCap className="w-10 h-10 text-accent" strokeWidth={1.5} />
+            </div>
+            <h1 className="text-5xl md:text-7xl font-display font-bold text-foreground mb-6 font-chinese">
               課程 / 出版
             </h1>
-            <p className="text-xl text-muted-foreground">
+            <div className="gold-line-center mb-6"></div>
+            <p className="text-xl md:text-2xl text-foreground/90">
               Courses &amp; Publications
             </p>
           </motion.div>
