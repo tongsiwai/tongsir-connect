@@ -53,7 +53,7 @@ export default function YoutubeSection() {
 
           <div className="mt-6">
             <a
-              href="https://courses.prolearning.asia"
+              href="https://www.prolearning.asia/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-accent-foreground rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
